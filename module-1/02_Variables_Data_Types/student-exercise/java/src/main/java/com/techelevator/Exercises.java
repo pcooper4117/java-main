@@ -28,40 +28,66 @@ public class Exercises {
         3. 3 raccoons are playing in the woods. 2 go home to eat dinner. How
         many raccoons are left in the woods?
         */
-
+int racoonsPlaying = 3;
+int racoonsThatAreHungry = 2;
+int racoonsLeft = racoonsPlaying - racoonsThatAreHungry;
+System.out.println(racoonsLeft);
         /*
         4. There are 5 flowers and 3 bees. How many less bees than flowers?
         */
-
+int flowers = 5;
+int bees = 3;
+int lessBees = flowers - bees;
+System.out.println(lessBees);
         /*
         5. 1 lonely pigeon was eating breadcrumbs. Another pigeon came to eat
         breadcrumbs, too. How many pigeons are eating breadcrumbs now?
         */
-
+int lonelyPigeon = 1;
+int hungryPigeon = 1;
+int dinnerForTwoBirds = lonelyPigeon + hungryPigeon;
+System.out.println(dinnerForTwoBirds);
         /*
         6. 3 owls were sitting on the fence. 2 more owls joined them. How many
         owls are on the fence now?
         */
-
+int originalOwls = 3;
+int newOwls = 2;
+int TotalOwls = originalOwls + newOwls;
+System.out.println(TotalOwls);
         /*
         7. 2 beavers were working on their home. 1 went for a swim. How many
         beavers are still working on their home?
         */
-
+int workerBeevs = 2;
+int wetBeev = 1;
+int productiveBeev = workerBeevs - wetBeev;
+System.out.println(productiveBeev);
         /*
         8. 2 toucans are sitting on a tree limb. 1 more toucan joins them. How
         many toucans in all?
         */
-
+int treeToucs =  2;
+int flyingTouc = 1;
+int totalToucs = treeToucs + flyingTouc;
+System.out.println(totalToucs);
         /*
         9. There are 4 squirrels in a tree with 2 nuts. How many more squirrels
         are there than nuts?
         */
-
+int treeSQs = 4;
+int nuts =  2;
+int moreSquirrels =  treeSQs - nuts;
+System.out.println(moreSquirrels);
         /*
         10. Mrs. Hilt found a quarter, 1 dime, and 2 nickels. How much money did
         she find?
         */
+double  quarter = .25;
+double dime =  .20;
+double nickels =  .05;
+double totalMoney = (quarter + dime + nickels);
+System.out.println(totalMoney);
 
         /*
         11. Mrs. Hilt's favorite first grade classes are baking muffins. Mrs. Brier's
@@ -69,156 +95,285 @@ public class Exercises {
         Mrs. Flannery's class bakes 17 muffins. How many muffins does first
         grade bake in all?
         */
-
+int MrsBsMuffs = 18;
+int MrsMcsMuffs = 20;
+int MrsFsMuffs = 17;
+int totalMuffs = (MrsBsMuffs + MrsMcsMuffs + MrsFsMuffs );
         /*
         12. Mrs. Hilt bought a yoyo for 24 cents and a whistle for 14 cents. How
         much did she spend in all for the two toys?
         */
+int yoyo = 24;
+int whistle = 14;
+int total = (yoyo + whistle);
+System.out.println(total);
+
 
         /*
         13. Mrs. Hilt made 5 Rice Krispie Treats. She used 8 large marshmallows
         and 10 mini marshmallows.How many marshmallows did she use
         altogether?
         */
+int bigMallos = 8;
+int lilMallos = 10;
+int totalMallos = (bigMallos + lilMallos);
+System.out.println(totalMallos);
 
         /*
         14. At Mrs. Hilt's house, there was 29 inches of snow, and Brecknock
         Elementary School received 17 inches of snow. How much more snow
         did Mrs. Hilt's house have?
         */
+int hiltSnow = 29;
+int schoolSnow = 17;
+int totalSnow =  (hiltSnow - schoolSnow);
+System.out.println(totalSnow);
 
         /*
         15. Mrs. Hilt has $10. She spends $3 on a toy truck and $2 on a pencil
         case. How much money does she have left?
         */
+int hiltsMoney = 10;
+int truck = 3;
+int pencil = 2;
+int leftOver = (hiltsMoney - truck - pencil);
+System.out.println(leftOver);
 
         /*
         16. Josh had 16 marbles in his collection. He lost 7 marbles. How many
         marbles does he have now?
         */
+int totalMarbs = 16;
+int lostMarbs =  7;
+int leftoverMarbs = (totalMarbs- lostMarbs);
+System.out.println(leftoverMarbs);
 
         /*
         17. Megan has 19 seashells. How many more seashells does she need to
         find to have 25 seashells in her collection?
         */
+int wantedShells = 25;
+int megansShells = 19;
+int neededShells = (wantedShells - megansShells);
+System.out.println(neededShells);
 
         /*
         18. Brad has 17 balloons. 8 balloons are red and the rest are green. How
         many green balloons does Brad have?
         */
+int totalballoons = 17;
+int redBalloons = 8;
+int greenBs = (totalballoons - redBalloons);
+System.out.println(greenBs);
+
+
 
         /*
         19. There are 38 books on the shelf. Marta put 10 more books on the shelf.
         How many books are on the shelf now?
         */
+int booksOnShelf = 38;
+int martaBooks =  10;
+int totalBooks = (booksOnShelf + martaBooks);
+System.out.println(totalBooks);
 
         /*
         20. A bee has 6 legs. How many legs do 8 bees have?
         */
+int bee = 6;
+int totalBees = 8;
+int legs = (bee * bees);
+System.out.println(legs);
+
 
         /*
         21. Mrs. Hilt bought an ice cream cone for 99 cents. How much would 2 ice
         cream cones cost?
         */
+double  cone = .99;
+double totalCost =  (cone + cone);
+System.out.println(totalCost);
+
 
         /*
         22. Mrs. Hilt wants to make a border around her garden. She needs 125
         rocks to complete the border. She has 64 rocks. How many more rocks
         does she need to complete the border?
         */
+int Garden =  125;
+int mrsH = 64;
+int complete = (Garden - mrsH);
+System.out.println(complete);
 
         /*
         23. Mrs. Hilt had 38 marbles. She lost 15 of them. How many marbles does
         she have left?
         */
+int allTheMarbs = 38;
+int LostMarbs = 15;
+int MarbsLeft = (allTheMarbs - LostMarbs);
+System.out.println(MarbsLeft);
 
         /*
         24. Mrs. Hilt and her sister drove to a concert 78 miles away. They drove 32
         miles and then stopped for gas. How many miles did they have left to drive?
         */
+int totalMiles = 78;
+int milesDrove = 32;
+int milesLeft = (totalMiles - milesDrove);
+System.out.println(milesLeft);
+
 
         /*
         25. Mrs. Hilt spent 1 hour and 30 minutes shoveling snow on Saturday
         morning and 45 minutes shoveling snow on Saturday afternoon. How
         much total time did she spend shoveling snow?
         */
+double saturday = 1.5;
+double afternoon = .75;
+ double totalTime = (saturday + afternoon);
+System.out.println(totalTime);
 
         /*
         26. Mrs. Hilt bought 6 hot dogs. Each hot dog cost 50 cents. How much
         money did she pay for all of the hot dogs?
         */
+double Dogs = 6;
+double cost = .50;
+double totalCosts = (Dogs * cost);
+System.out.println(totalCosts);
+
 
         /*
         27. Mrs. Hilt has 50 cents. A pencil costs 7 cents. How many pencils can
         she buy with the money she has?
         */
+double hiltsPurse =  .50;
+double pencils = .07;
+double totalPencils = (hiltsPurse / pencils);
+System.out.println(totalPencils);
 
         /*
         28. Mrs. Hilt saw 33 butterflies. Some of the butterflies were red and others
         were orange. If 20 of the butterflies were orange, how many of them
         were red?
         */
+int totalButterflys = 33;
+int orangeFlys = 20;
+int redFlys =  (totalButterflys - orangeFlys);
+System.out.println(redFlys);
 
         /*
         29. Kate gave the clerk $1.00. Her candy cost 54 cents. How much change
         should Kate get back?
         */
+double kate  = 1.0;
+double candy =  .54;
+double change = (kate - candy);
+System.out.println(change);
 
         /*
         30. Mark has 13 trees in his backyard. If he plants 12 more, how many trees
         will he have?
         */
+int marks = 13;
+int moreTrees =  12;
+int TotalTrees = (marks + moreTrees);
+System.out.println(TotalTrees);
 
         /*
         31. Joy will see her grandma in two days. How many hours until she sees
         her?
         */
+int dayHours = 24;
+int days = 2;
+int Hours = (dayHours * days);
+System.out.println(moreSquirrels);
 
         /*
         32. Kim has 4 cousins. She wants to give each one 5 pieces of gum. How
         much gum will she need?
         */
+int cousins = 4;
+int gum = 5;
+int totalGum = (cousins * gum);
+System.out.println(totalGum);
+
 
         /*
         33. Dan has $3.00. He bought a candy bar for $1.00. How much money is
         left?
         */
+double dan = 3.00;
+double candies = 1.00;
+double leftOverCash = (dan - candies);
+System.out.println(leftOverCash);
+
 
         /*
         34. 5 boats are in the lake. Each boat has 3 people. How many people are
         on boats in the lake?
         */
+int boats = 5;
+int peeps = 3;
+int totalPeeps = (boats * peeps);
+System.out.println(totalPeeps);
 
         /*
         35. Ellen had 380 legos, but she lost 57 of them. How many legos does she
         have now?
         */
+int legos = 380;
+int lost = 57;
+int WhatSheGot =( legos - lost);
+System.out.println(WhatSheGot);
 
         /*
         36. Arthur baked 35 muffins. How many more muffins does Arthur have to
         bake to have 83 muffins?
         */
+int TotalMuffs = 83;
+int bakedMuffs = 35;
+int MuffsToMake = ( TotalMuffs - bakedMuffs);
+System.out.println(MuffsToMake);
 
         /*
         37. Willy has 1400 crayons. Lucy has 290 crayons. How many more
         crayons does Willy have then Lucy?
         */
+int Willy = 1400;
+int Lucy = 290;
+int difference =  (Willy-Lucy);
+System.out.println(difference);
+
 
         /*
         38. There are 10 stickers on a page. If you have 22 pages of stickers, how
         many stickers do you have?
         */
+int stickers = 10;
+int pages = 22;
+int totalSticks = (stickers * pages);
+System.out.println(totalSticks);
 
         /*
         39. There are 96 cupcakes for 8 children to share. How much will each
         person get if they share the cupcakes equally?
         */
+int cups = 98;
+int kids = 8;
+int shared = (cups / kids);
+System.out.println(shared);
 
         /*
         40. She made 47 gingerbread cookies which she will distribute equally in
         tiny glass jars. If each jar is to contain six cookies each, how many
         cookies will not be placed in a jar?
         */
+int cooks = 47;
+int jars = 6;
+int howManyCookies = ( cooks % 6);
+System.out.println(howManyCookies);
 
         /*
         41. She also prepared 59 croissants which she plans to give to her 8
