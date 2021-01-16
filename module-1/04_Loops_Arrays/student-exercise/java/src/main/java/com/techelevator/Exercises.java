@@ -74,12 +74,17 @@ public class Exercises {
 	 sum3([7, 0, 0]) → 7
 	 */
 //	int sum = 0;
+	// loop through array
+	// add up indexes
 	public int sum3(int[] nums) {
-		for (int i=0; i < nums.length; i++) {
-	//		sum = sum + nums[i];
-		}
-		return 0;
-	}
+	 
+	int sum = 0;
+	 for (int i = 0; i < nums.length; i ++ );{
+		 sum = (sum + nums[i]);
+		 return sum;
+		 }
+	 
+	 }
 
 	/*
 	 6. Given an array of ints length 3, return an array with the elements "rotated left" so {1, 2, 3} 
@@ -162,10 +167,7 @@ public class Exercises {
 //  
 	public int[] middleWay(int[] a, int[] b) {
 		
-		//int mid1 = a[1];
-		//int mid2 = b[1];
-		// int [] newArray = [mid1 + mid2];
-		// return newArray; 
+		
 	
 	int[] middleArray = {a[1], b[1]};
 	return middleArray;}
@@ -203,7 +205,7 @@ public class Exercises {
 	 sum13([1, 2, 2, 1, 13, 3, 4]) → 10
 	 */
 	// return sum of array if 0;
-	//
+	// if array with number 13 do not add index next to it in sum
 	public int sum13(int[] nums) {
 		 int sum = 0;
 		for (int i = 0; i < nums.length ; i++) {
@@ -244,7 +246,7 @@ public class Exercises {
 //return false;
 	//}	else {
 //	return true;
-	}
+	
 
 
 	/*
@@ -253,8 +255,25 @@ public class Exercises {
 	 sum28([2, 3, 2, 2, 4, 2, 2]) → false
 	 sum28([1, 2, 3, 4]) → false
 	 */
+	
+	// find indexs that are 2, add them up
+	//if = return
 	public boolean sum28(int[] nums) {
-		return false;
+		
+		
+		
+		int sum = 0;
+		for (int i = 2; i < nums.length ; i++;) {
+			return sum ++;
+		}
+			
+			  
+			
+			
+		}
+		
+		
+		
 	}
 
 }
