@@ -21,16 +21,18 @@ public class CommandLineSampleProgram {
 		System.out.println ("You entered the line: " + aLine); //display line entered line by user
 		
 		System.out.println ("Please Enter a whole number: ");
-		aLine = userInput.nextLine();
-		System.out.println ("You entered the number: " + aLine);
+	int aNumber = userInput.nextInt();
+	userInput.nextLine();
+		System.out.println ("You entered the number: " + aNumber);
 		
 		// we want to divide what the user entered by two to get half the value
 		// we stored what they entered as a string which cannot be used in arithmatic 
 		// we need to convert the value in a string to do arithmetic
 		// we need to convert it
 		// we can use the integer.parseINT fucntion or .parseDouble to convert string to numeric
+		//m
 		int theNumber = Integer.parseInt(aLine);
-		System.out.println ( "Half of that number is: " + theNumber / 2);
+		System.out.println ( "Half of that number is: " + aNumber / 2);
 	// get a series of values from a user and determine the sum and the average
 		// 1 ask user to enter a value or indicate they are done( "n" == done)
 		// 2 if not done:

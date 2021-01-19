@@ -18,7 +18,7 @@ public class RoundingExample
     
     double moneyFound = quarter + dime + (nickels * 2);  // should be .45
     
-    System.out.println("moneyFound with no formatting: " + moneyFound);
+    System.out.println("moneyFound with no formatting: %.2f\n " + moneyFound);
     
     System.out.println("-------------------------------------------------------");
     /*

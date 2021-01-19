@@ -15,7 +15,9 @@ public class Lecture {
 
 		/* create an new instance of String using a literal */
 
-
+String softDrink = "Diet Mtn Dew";
+String beverage = softDrink + " by pepsi";
+System.out.println(beverage);
 
 //--------------------------------------------------------------------------------------------------------		
 		System.out.println();
