@@ -171,11 +171,42 @@ public class Exercises {
 	 list to the new list before returning it.
 	 interleaveLists( [1, 2, 3], [4, 5, 6] )  ->  [1, 4, 2, 5, 3, 6]
 	 */
-	//public List<Integer> interleaveLists(List<Integer> listOne, List<Integer> listTwo) {
+	//define return value
+	//List of integers needs to be defined
+	public List<Integer> interleaveLists(List<Integer> listOne, List<Integer> listTwo) {
 		
-	//	ArrayList<Integer> result = new ArrayList();
-	//	for (int = 0; i < listOne.size(); i++) {
-	//	return null;
-	}
+List<Integer> newList = new ArrayList<Integer>();
+//loop through the elements of both lists one at a time;
+//add current element in list one to new list. then add current element from list two to new list
+// Interleave for the length of the shorter list
+// we need to figute out what is the length of the shorter list
+// 
+// code for the edge case where the list is different lengths
+boolean firstShorter = listOne.size()< listTwo.size();
+int sizeOfShorter = 0;
+if (firstShorter) {
+	sizeOfShorter = listOne.size();
+}
+else {
+	sizeOfShorter = listTwo.size();
+}
+for (int i = 0; i < sizeOfShorter; i++) {
+	newList.add(listOne.get(i));  // adding current element in list one to new list
+	newList.add(listTwo.get(i));
+}
+// we start adding elements from the longer list from the element number that matches the length of the shorter
 
-	//}
+if (firstShorter) { // if the firstone was shorter add the remaining elements to second one.
+	for (int i = sizeOfShorter; i< listTwo.size(); i++) {
+		newList.add(listTwo.get(i));
+	}
+}
+else {
+	for (int i = sizeOfShorter; i< listTwo.size(); i++) {
+	newList.add(listOne.get(i));
+	}
+}
+		return newList;
+	}
+}
+	

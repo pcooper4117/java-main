@@ -2,6 +2,7 @@ package com.techelevator;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Set;
 
 public class Exercises {
 
@@ -33,8 +34,38 @@ public class Exercises {
 	 * animalGroupName("elephants") -> "unknown"
 	 *
 	 */
+
 	public String animalGroupName(String animalName) {
-		return null;
+		String groupName = "";
+				
+	if (animalName == null) {
+		return  "unknown";
+	}
+				
+			
+	// set up a map to associate thea animal name to the group name
+	// key - animal name in lower case since we want to search to be case insensitive
+	// value - group name
+		
+	 Map<String, String> animalGroups = new HashMap();
+	 // add entries to map for the animal names given
+	 animalGroups.put( "rhino"		, "Crash"); 
+	 animalGroups.put( "giraffe"	, "Tower"); 
+	 animalGroups.put( "elephant"	, "Herd"); 
+	 animalGroups.put( "lion"		, "Pride"); 
+	 animalGroups.put( "crow"		, "Murder"); 
+	 animalGroups.put( "pidgeon"	, "Kit"); 
+	 animalGroups.put( "flamingo"	, "Pat"); 
+	 animalGroups.put( "deer"		, "Herd"); 
+	 animalGroups.put( "dog"		, "Pack"); 
+	 animalGroups.put( "crocidile"	, "Float"); 
+// look to see if animal name given is in the map- with case insensitivity 
+	 groupName = animalGroups.get(animalName.toLowerCase());
+	 // check to be sure that the animal was in the map if not set to null unknown
+	 if( groupName == null) {
+		 groupName = "unknown";
+	 }
+		return groupName;
 	}
 
 	/*
@@ -60,8 +91,26 @@ public class Exercises {
 	 *
 	 */
 	public double isItOnSale(String itemNumber) {
-		return -1.0;
+		if (itemNumber == null) {
+			return  0;
+		}
+		
+	
+		 Map<String, Double> isItOnSale = new HashMap();
+		
+		 isItOnSale.put("KITCHEN4001", 0.20);
+		 isItOnSale.put("GARAGE1070", 0.15);
+		 isItOnSale.put("KITCHEN6073", 0.10);
+		 isItOnSale.put("BEDROOM3434", 0.60);
+		 isItOnSale.put("BATH0073", 0.15);
+		 isItOnSale.put("LIVINGROOM", 0.10);
+
+		if (isItOnSale.containsKey(itemNumber.toUpperCase())) {
+			return isItOnSale.get(itemNumber.toUpperCase());
+		}
+		return 0.00;
 	}
+	
 
 	/*
 	 * Modify and return the given Map as follows: if "Peter" has more than 0 money, transfer half of it to "Paul",
@@ -73,8 +122,28 @@ public class Exercises {
 	 * robPeterToPayPaul({"Peter": 2000, "Paul": 30000}) → {"Peter": 2000, "Paul": 30000}
 	 *
 	 */
+	// if statements for peter having > 0
+	// .put half of money to paul
+	//		if paul has less then paul
 	public Map<String, Integer> robPeterToPayPaul(Map<String, Integer> peterPaul) {
-		return null;
+		
+		int peterCash = peterPaul.get("Peter");
+		int paulCash = peterPaul.get("Paul");
+	Map<String,Integer> robPeterToPayPaul = new HashMap();
+		
+		if (peterCash > 0 && paulCash < 1000) {
+			
+		
+			peterPaul.put("Paul", peterPaul.get("Paul") + (peterPaul.get("Peter") / 2));
+			peterPaul.put("Peter", (peterPaul.get("Peter") - peterPaul.get("Peter") / 2));
+			
+		}	
+			
+			return peterPaul;
+			
+			
+		
+		
 	}
 
 	/*
@@ -87,9 +156,24 @@ public class Exercises {
 	 *
 	 */
 	public Map<String, Integer> peterPaulPartnership(Map<String, Integer> peterPaul) {
-		return null;
+// if statement for totals of peter and paul
+		// create new map for Partnership
+		//take  quartter of there money and add it in
+		int peterCash = peterPaul.get("Peter");
+		int paulCash = peterPaul.get("Paul");
+		
+		Map<String,Integer> peterPaulPartnership = new HashMap();
+		
+		if (peterCash >= 5000 && paulCash >= 10000) {
+			peterPaul.put("PeterPaulPartnership", ((peterCash/4) + (paulCash /4)));
+			peterPaul.put("Paul", peterPaul.get("Paul") - (peterPaul.get("Paul") / 4));
+			peterPaul.put("Peter", (peterPaul.get("Peter") - peterPaul.get("Peter") / 4));
+		
+		}
+		
+		return peterPaul;
 	}
-
+	
 	/*
 	 * Given an array of non-empty Strings, return a Map<String, String> where for every different String in the array,
 	 * there is a key of its first character with the value of its last character.
@@ -98,8 +182,19 @@ public class Exercises {
 	 * beginningAndEnding(["man", "moon", "main"]) → {"m": "n"}
 	 * beginningAndEnding(["muddy", "good", "moat", "good", "night"]) → {"g": "d", "m": "t", "n": "t"}
 	 */
+	// return a new map for diffString
+	// loop through to get specific key
 	public Map<String, String> beginningAndEnding(String[] words) {
-		return null;
+		Map<String,String> firstAndLast = new HashMap();
+	
+		
+		for ( String strings : words) {
+			firstAndLast.put(strings.substring(0,1), strings.substring(strings.length()-1));
+		}
+
+		
+		
+		return firstAndLast;
 	}
 
 	/*

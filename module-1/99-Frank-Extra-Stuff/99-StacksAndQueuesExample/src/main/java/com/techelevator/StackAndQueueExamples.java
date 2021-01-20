@@ -101,7 +101,7 @@ public class StackAndQueueExamples {
  *                      you must cast reference to type necessary
  * 
  **********************************************************************************/
-	
+	// a queue is a linkedList object 
 		LinkedList <String> myQueue = new LinkedList<String>();	    
 		//myQueue.
 		
