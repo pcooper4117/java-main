@@ -1,6 +1,7 @@
 package com.techelevator;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class Exercises {
@@ -15,8 +16,15 @@ public class Exercises {
 	 array2List( {"Red", "Orange", "Yellow"} )  ->  ["Red", "Orange", "Yellow"]
 	 array2List( {"Left", "Right", "Forward", "Back"} )  ->  ["Left", "Right", "Forward", "Back"]
 	 */
+	// go through array that is passed in one element at a time and then assign each element to array list
 	public List<String> array2List(String[] stringArray) {
-		return null;
+		ArrayList<String> result = new ArrayList();
+	for (int i = 0; i < stringArray.length; i++) {
+		result.add(stringArray[i]); // add current element to array list.
+	}
+		
+		return result;
+		
 	}
 
 	/*
@@ -26,7 +34,9 @@ public class Exercises {
 	 list2Array( ["Left", "Right", "Forward", "Back"] )  ->  {"Left", "Right", "Forward", "Back"}
 	 */
 	public String[] list2Array(List<String> stringList) {
-		return null;
+		String[] result = stringList.toArray( new String[0]); 
+		
+		return result;
 	}
 
 	/*
@@ -37,9 +47,17 @@ public class Exercises {
 	 no4LetterWords( {"Jack", "Jill", "Jane", "John", "Jim"} )  ->  ["Jim"]
 	 */
 	public List<String> no4LetterWords(String[] stringArray) {
-		return null;
+	
+		ArrayList<String> noFourLetterWords = new ArrayList();
+		
+		for  (String words : stringArray) {
+			if (words.length() != 4) {
+				noFourLetterWords.add(words);
+			}
 	}
-
+			return noFourLetterWords;
+		}
+	
 	/*
 	 Given an array of ints, divide each int by 2, and return an ArrayList of Doubles.
 	 arrayInt2ListDouble( {5, 8, 11, 200, 97} ) -> [2.5, 4.0, 5.5, 100, 48.5]
@@ -47,7 +65,12 @@ public class Exercises {
 	 arrayInt2ListDouble( {84, 99, 3285, 13, 877} ) -> [42, 49.5, 1642.5, 6.5, 438.5]
 	 */
 	public List<Double> arrayInt2ListDouble(int[] intArray) {
-		return null;
+		List<Double> divideDouble = new ArrayList<Double>();
+		for (Integer willDivide : intArray) {
+			divideDouble.add(willDivide / 2.0);
+		}
+	
+		return divideDouble;
 	}
 
 	/*
@@ -57,7 +80,9 @@ public class Exercises {
 	 findLargest( [34070, 1380, 81238, 7782, 234, 64362, 627] ) -> 64362
 	 */
 	public Integer findLargest(List<Integer> integerList) {
-		return null;
+
+		
+		return Collections.max(integerList);
 	}
 
 	/*
@@ -67,8 +92,19 @@ public class Exercises {
 	 oddOnly( {734, 233, 782, 811, 3, 9999} ) -> [233, 811, 3, 9999]
 	 */
 	public List<Integer> oddOnly(Integer[] integerArray) {
-		return null;
-	}
+		
+		List<Integer> result = new ArrayList();
+	for (int i = 0; i < integerArray.length; i ++) {
+		if (integerArray [i] % 2 != 0) {
+			result.add(integerArray[i]);
+		}
+		
+		
+		}
+		
+		
+		return result;
+}
 
 	/*
 	 Given a List of Integers, and an int value, return true if the int value appears two or more times in
@@ -78,6 +114,16 @@ public class Exercises {
 	 foundIntTwice( [9, 23, 44, 2, 88, 44], 44) -> true
 	 */
 	public boolean foundIntTwice(List<Integer> integerList, int intToFind) {
+		int foundIntTwice = 0;
+		for (Integer findTwice : integerList) {
+			if ( intToFind == findTwice) {
+				foundIntTwice = foundIntTwice + 1;
+			}
+		}
+		if (foundIntTwice == 2) {
+			return true;
+		}
+		
 		return false;
 	}
 
@@ -94,10 +140,30 @@ public class Exercises {
 	 HINT: To convert an integer x to a string you can call x.toString() in your code (e.g. if x = 1 then x.ToString()
 	 equals "1")
 	 */
+	
+	
 	public List<String> fizzBuzzList(Integer[] integerArray) {
-		return null;
+		List<String> fizzBuzzList = new ArrayList<String>();
+		
+		for (Integer num : integerArray)
+		 if (num % 3 == 0 && num % 5 == 0 ) {
+			 fizzBuzzList.add("FizzBuzz");
+		 
 	}
+	else if (num % 3 == 0) {
+		fizzBuzzList.add("Fizz");
+	}
+			else if (num % 5 == 0) {
+				fizzBuzzList.add("Buzz");
+			}			
+				else {
+					fizzBuzzList.add(num.toString());
 
+		
+
+		}
+		return fizzBuzzList;
+	}
 	/*
 	 Given two lists of Integers, interleave them beginning with the first element in the first list followed
 	 by the first element of the second. Continue interleaving the elements until all elements have been interwoven.
@@ -105,8 +171,11 @@ public class Exercises {
 	 list to the new list before returning it.
 	 interleaveLists( [1, 2, 3], [4, 5, 6] )  ->  [1, 4, 2, 5, 3, 6]
 	 */
-	public List<Integer> interleaveLists(List<Integer> listOne, List<Integer> listTwo) {
-		return null;
+	//public List<Integer> interleaveLists(List<Integer> listOne, List<Integer> listTwo) {
+		
+	//	ArrayList<Integer> result = new ArrayList();
+	//	for (int = 0; i < listOne.size(); i++) {
+	//	return null;
 	}
 
-}
+	//}
