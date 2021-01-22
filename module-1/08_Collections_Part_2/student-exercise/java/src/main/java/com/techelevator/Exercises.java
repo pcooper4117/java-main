@@ -209,7 +209,13 @@ public class Exercises {
 	 * wordCount(["c", "b", "a"]) → {"b": 1, "c": 1, "a": 1}
 	 *
 	 */
+	
+
 	public Map<String, Integer> wordCount(String[] words) {
+		
+			
+			
+		
 		return null;
 	}
 
