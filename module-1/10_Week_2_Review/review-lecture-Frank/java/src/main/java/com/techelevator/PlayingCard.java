@@ -32,7 +32,7 @@ public class PlayingCard {
 	 * static methods can only refer to static data members
 	 * 
 	 * static method is one that processes static data
-	 * 
+	 * a
 	 * static methods may be invoked with any object of the class or class name
 	 * 
 	 *      System.out.println()   -   System is the class name; out is the object; println() is the method

@@ -16,7 +16,7 @@ public class PlayingCard {
 	 ***************************************************************************************/
 	
 	public PlayingCard(int value, String suit, String color) {
-		this.value = value;
+		this.value = value; // this means object is the same as the parameter
 		this.suit  = suit;
 		this.color = color;
 	}

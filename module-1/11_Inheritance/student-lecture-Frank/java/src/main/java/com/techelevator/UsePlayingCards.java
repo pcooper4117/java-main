@@ -1,7 +1,7 @@
 package com.techelevator;
 
 public class UsePlayingCards {
-
+// an application program to instantiate and use playing card objects
 	public static void main(String[] args) {
 		System.out.println("\nInstantiating aUSACard as an ace of Hearts");
 		AmericanPlayingCard aUSACard  = new AmericanPlayingCard(1, "HEARTS");  // Instantiate an Ace of Hearts
@@ -17,12 +17,21 @@ public class UsePlayingCards {
 		System.out.println("aUSACard3 is : \n" + aUSACard3);	
 
 		System.out.println("\nComparing aUSACard2 and aUSACard3");
-		
+		aUSACard2.setValue(4);
+		//using playingCard method with an AmericanPlayingCards object 
+		// Using a superclass Method with a subclass Object
 		if (aUSACard2.equals(aUSACard3)) {
 			System.out.println("They are equal");
 		}
 		else {
 			System.out.println("They are NOT equal");
+			
+			ItalianCard guido = new ItalianCard();
+					System.out.println ("Guido is " + guido);
+			guido.setValue(6);
+			guido.
+			System.out.println ("Guido is " + guido);
+			
 		}
 	}
 

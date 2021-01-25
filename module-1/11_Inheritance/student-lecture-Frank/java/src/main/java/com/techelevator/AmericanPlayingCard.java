@@ -7,9 +7,12 @@ import java.util.TreeMap;
  * American Playing Card Class - subclass of generic PlayingCard
  ***************************************************************************************************/
 
-public class AmericanPlayingCard extends PlayingCard{
+public class AmericanPlayingCard extends PlayingCard{ // extends subclass of playing card
 	/************************************************************************************************
 	 * Constants for values related to American Playing Cards
+	 *  Static - since constants can not be changed(final) we make them static  - one occurrence of the variable
+	 * 		regardless of number of objects 
+	 * Final  - cannot be changed once they are assigned a value
 	 ***********************************************************************************************/	
 	private static final int    DEFAULTCARDVALUE = 0;
 	private static final String DEFAULTCOLOR     = "BLACK";
@@ -19,6 +22,9 @@ public class AmericanPlayingCard extends PlayingCard{
 
 	/**************************************************************************************************
 	 * Maps used to validate/limit suits, colors and value names for American Playing Cards
+	 * use static to have only once occurrence of the variable shared 
+	 * since the contents of the map will be the same for all American cards we dont need more than one
+	 * 	
 	 *************************************************************************************************/	
 	
 	private static Map<String,  String> suitMap  = new HashMap<String , String>();  
@@ -26,13 +32,15 @@ public class AmericanPlayingCard extends PlayingCard{
 	
 	/***************************************************************************************************
 	 *Invoke method to populate maps with valid suits, colors & value names for American Playing Cards
+	 * 		when the first object of the class is instantiated
 	 **************************************************************************************************/	
-	
+	// use anonymous method to call/invoke the initializeMaps method
 	static {             // static method to initialize maps before are ever used
        initializeMaps();
     }
 	/***************************************************************************************************
-	 * 0-arg / Default Constructor
+	 * 0-arg / Default Constructor / default constructor for the sublcass - must run ctor the its superclass
+	 * 
 	 **************************************************************************************************/		
 	public AmericanPlayingCard() 
 	{
@@ -53,6 +61,7 @@ public class AmericanPlayingCard extends PlayingCard{
 	}
 	/****************************************************************************************************
 	 * Initialize Maps to valid suit/color combinations and value names
+	 * set up the maps with the suit color and value name associations
 	 ***************************************************************************************************/	
 	private static void initializeMaps() {
 		suitMap.put("SPADES"  , "BLACK");
