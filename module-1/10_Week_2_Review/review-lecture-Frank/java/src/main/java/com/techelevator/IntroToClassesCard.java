@@ -73,6 +73,22 @@ public class IntroToClassesCard {
 		System.out.println("After flip(), Is the card face up? " + theCard.isShowing());
 		
 		System.out.println("-----------------------------------------------------------------------------------");
+	PlayingCard Card4 = new PlayingCard(3, "Diamonds");
+	PlayingCard Card5 = new PlayingCard(3, "Diamonds");
+
+		
+		//									use .equals to compare content of reference variable
+		// 
+		
+		// DOES A PLAYING CARD EQUAL ITSELF?
+			if (Card4.equals(Card5)) {
+				System.out.println("Card4 is equal toCard5");
+			}
+			else {
+				System.out.println( "Card4 does not equal Card5");
+			}
+	
+	
 	}
 }
 		 
