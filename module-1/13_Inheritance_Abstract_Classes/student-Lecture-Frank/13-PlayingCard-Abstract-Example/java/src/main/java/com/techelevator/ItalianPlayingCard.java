@@ -58,7 +58,7 @@ public class ItalianPlayingCard extends PlayingCard {
 		valueMap.put(13,"Re");
 	}
 	
-	@Override
+	@Override // an overriding method must have same  name  and parameters must have same type and order
 	public String toString() {
 		return "ItalianPlayingCard: " 
 	          +"Value: "    + valueMap.get(getValue())

@@ -1,12 +1,12 @@
 package com.techelevator;
 
 import java.util.ArrayList;
-
+// black jack hand is a "type of" == interface
 public class BlackJackHand	 implements CardHand {
 
-	private int numCardsInHand = 2;
+	private int numCardsInHand = 2;		//Starting number of cards in hand
 	
-	private ArrayList<PlayingCard> aHand;
+	private ArrayList<PlayingCard> aHand;  // represent the hand as arrayList
 	
 	public BlackJackHand() {
 		aHand = new ArrayList<PlayingCard>(numCardsInHand);
@@ -16,16 +16,16 @@ public class BlackJackHand	 implements CardHand {
 	public ArrayList<PlayingCard> getHand() {
 		return aHand;
 	}
-
+// we need to override the methods by the cardHand interface
 	@Override
-	public void addCard(PlayingCard aCard) {
+	public void addCard(PlayingCard aCard) { // arrayList add to add card to hand
 		aHand.add(aCard);
 		numCardsInHand++;
 	}
 
 	@Override
 	public void emptyHand() {
-		aHand.clear();
+		aHand.clear();   					// to empty the hand
 
 	}
 
@@ -37,7 +37,8 @@ public class BlackJackHand	 implements CardHand {
 		}
 			return;
 	}
-	
+	// methods to provide additional functionality beyond what is required by the cardHand interface
+	// do no code override to ask the compliler to verify they are proper overrides since they are not overrrides
 	public void dealHand(CardDeck aDeck) {
 		for (int i=0; i < numCardsInHand; i++ ) {
 			aHand.add(aDeck.dealCard());

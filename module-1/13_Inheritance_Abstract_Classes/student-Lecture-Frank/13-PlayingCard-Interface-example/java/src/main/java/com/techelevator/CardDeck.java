@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.LinkedList;
 
-
+// linked list is a queue FIFO 
 public class CardDeck {
 	LinkedList<PlayingCard> deckOfCards = new LinkedList<PlayingCard>();
 	private int numCardsInDeck = 54;
@@ -30,8 +30,8 @@ public class CardDeck {
 	}
 
 	public PlayingCard dealCard() {
-		if (deckOfCards.size() > 0) {
-			return deckOfCards.remove();
+		if (deckOfCards.size() > 0) {// as long as there are cards in deck
+			return deckOfCards.remove(); // takes off top
 		}
 		else {
 			 return null;

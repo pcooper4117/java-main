@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class UsePlayingCards {
-
+	  
 	public static void main(String[] args) {
 		AmericanPlayingCard aUSACard  = new AmericanPlayingCard(1, "HEARTS");
 		System.out.println("aUSACard is : \n" + aUSACard);
@@ -30,10 +30,15 @@ public class UsePlayingCards {
 		SwissPlayingCard aSwissCard3 = new SwissPlayingCard(10, "ACORNS");
 		System.out.println("anSwissCard3 is : \n" + aSwissCard3);
 		
+		
+		
 	System.out.println("\n----- Polymorphism example follows ------ \n");
 		
-		
+		//							 new collection(what it holds)
 		List<PlayingCard> someCards = new ArrayList<PlayingCard>();
+		// someCards is an object of a type of arrayList of PlayingCard type objects- a subclass object includes the superclass
+		// we use an abstract class as a type not to instantiate an object
+		
 		
 		someCards.add(anItalianCard1);
 		someCards.add(aUSACard);

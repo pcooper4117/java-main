@@ -1,16 +1,19 @@
 package com.techelevator;
 
-public class PlayingCard {
-	
-	private int value;    
+public  abstract class  PlayingCard {
+	// abstract is an attribute applied to a class that can never be instantiated 
+	// and abstract class can only be a super class
+	// it provides a generic description of an object, the subclass refine the description
+	protected int value;  // only members of this class or subclass can access  
 	private String color;    
 	private String suit;     
 	
+	// protected violates strict interpretation of encapsulation
 	
 	public PlayingCard(int value, String suit, String color) {
 		this.value = value;
 		this.suit  = suit;
-		this.color = color;
+		this.color = color; // this keyword always means current object - current object is to left of dot that invoked method
 	}
 	
 	public int getValue() {
@@ -60,7 +63,9 @@ public class PlayingCard {
 		}
 		return true;
 	}
-
-	public void showCard() {}  // Required for Polymorphism - does nothing
-		
+//		an abstract method is defined when a super class wants to ensure any subclass defines/overrrides the method
+	// we dont know what the abstract method should do in the super class, we just know we need to have the method
+	//		SUBCLASSES MUST OVERRIDE THIS METHOD
+	public abstract void showCard() {}  // Required for Polymorphism - does nothing
+		// uses ; instead of braces
 }

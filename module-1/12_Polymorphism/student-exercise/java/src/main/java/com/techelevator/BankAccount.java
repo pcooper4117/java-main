@@ -26,7 +26,7 @@ public class BankAccount implements Accountable{
         return accountNumber;
     }
 
-    public int getBalance() {
+    public int getBalance() {// required by accountable interface
         return balance;
     }
 
