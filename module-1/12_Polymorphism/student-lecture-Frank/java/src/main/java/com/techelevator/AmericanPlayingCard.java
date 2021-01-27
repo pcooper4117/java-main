@@ -14,8 +14,11 @@ public class AmericanPlayingCard extends PlayingCard{
 	private static Map<String,  String> suitMap  = new HashMap<String , String>();  
 	private static Map<Integer, String> valueMap = new TreeMap<Integer, String>(); 
 	
+	// static anonymous methods are automatically run when the process runs
+	// static variables are automatically created when the process starts
+	
 	static {
-		initializeMaps();
+		initializeMaps();// because the map is static we need a static method to call 
 	}
 	
 	public AmericanPlayingCard() 
@@ -35,6 +38,9 @@ public class AmericanPlayingCard extends PlayingCard{
 			setValue(MINVALUE);
 		}
 	}
+	//since placing data in a map requires a method class (.put call) 
+	//and method calls can only be done in other methods
+	//we have to code the process for initializing the maps in a method
 
 	static private void initializeMaps() {
 		suitMap.put("SPADES"   , "BLACK");

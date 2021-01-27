@@ -1,5 +1,7 @@
 package com.techelevator;
 
+import java.util.ArrayList;
+
 public class UsePlayingCards {
 
 	public static void main(String[] args) {
@@ -46,7 +48,46 @@ public class UsePlayingCards {
 			
 		SwissPlayingCard aSwissCard4 = new SwissPlayingCard(11, "JASON");
 		System.out.println("anSwissCard4 is :");
-		aSwissCard4.showCard();		
+		aSwissCard4.showCard();	
+		//-------------------------------------------------------------------------------------------------------------
+		System.out.println("Start of PolyMorphism examples begin here");
+		
+		PlayingCard aCard = null; // define a super class that is empty
+		
+		aCard = aUSACard;  // in this case its going to run the american playing card show card method
+		
+		
+		aCard.showCard();// using superClass object to run a common method in inheritance hierarchy
+							// all SubClasses have a showCard() method... Polymorphism will decide what to show
+		
+		aCard = anItalianCard1 ;
+		aCard.showCard();
+		
+		aCard = aSwissCard1;		// assign a subClass to a super Class object
+		aCard.showCard();			// use super class to run methods
+	//---------------------------------------------------------------------------------------------------------------------	
+	System.out.print( "			Beggining of polymorphism examples using arrayList");
+	
+	
+	ArrayList <PlayingCard> cardList = new ArrayList();
+		// add subClass objects to the arrayList of superClass;
+		cardList.add(aSwissCard1);// add a subClass object
+		cardList.add(anItalianCard1);
+		cardList.add(aUSACard);
+		cardList.add(aUSACard2);
+		cardList.add(aSwissCard2);
+					// Loop through the arrayList displaying the card using show card Method
+			for(PlayingCard theCard : cardList) {
+				theCard.showCard();
+			}
+		// we dont need to know or card what type of object is in the for loop variable 
+			// each time through the loop
+		
 	}
 
+
+	
+	
+	
+	//-----------------------------------------------------------------------------------------------
 }

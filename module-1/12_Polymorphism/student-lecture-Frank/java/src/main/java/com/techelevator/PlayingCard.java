@@ -31,6 +31,10 @@ public class PlayingCard {
 	public void setSuit(String suit) {
 		this.suit = suit;
 	}
+	public void showCard() {
+		System.out.println(this.toString());
+
+	}  // define method even though it does nothing 
 	@Override
 	public String toString() {
 		return "PlayingCard [value=" + value + ", color=" + color + ", suit=" + suit + ", getValue()=" + getValue()

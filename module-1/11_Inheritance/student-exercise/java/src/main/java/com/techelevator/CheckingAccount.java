@@ -10,7 +10,9 @@ public class CheckingAccount extends BankAccount {
 		super(accountHolderName, accountNumber, balance);
 	
 	}
-	
+	// check to see if the account is over or equal to 100
+	// if account is less than 0 take 10
+	//
 	public int withdraw (int withdraw) {
 		if (getBalance() - withdraw >= -100){
 			super.withdraw(withdraw);
