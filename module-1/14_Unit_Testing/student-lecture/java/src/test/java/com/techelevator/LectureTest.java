@@ -17,21 +17,21 @@ import org.junit.runners.MethodSorters;
  * production class with "Test" at the end.  For example, the test class
  * for the production class "Foo" would be "FooTest"
  */
-@FixMethodOrder(MethodSorters.NAME_ASCENDING)
-public class LectureTest {
+@FixMethodOrder(MethodSorters.NAME_ASCENDING)//optional tells j unit to list test alphabetically
+public class LectureTest {  //class to hold all the unit test
 
 	/* If a method is annotated with @Before, it will be executed immediately prior to every test.
 	 * It is intended to be used when there is a repetitive setup (i.e. "Arrange") task that is
 	 * performed by several tests */
-	@Before
+	@Before // do this before every unit test-any set up required for each test- define variables, gather data
 	public void setup() {
-		System.out.println("setup");
+		System.out.println("setup");// not usually done
 	}
 
 	/* If a method is annotated with @After, it will be executed immediately after every test.
 	 * It is intended to be used when there is a repetitive cleanup task that is performed by
 	 * several tests (e.g. deleting temp files, rolling back database transactions, etc) */
-	@After
+	@After// after any test any take down processing
 	public void teardown() {
 		System.out.println("teardown");
 	}
@@ -57,16 +57,18 @@ public class LectureTest {
 	 *     - return void
 	 *     - take no arguments
 	 */
-	@Test
+	@Test // identifies unit test to Junit - if ommited, junit doesnt see the test
 	public void length_returns_the_number_of_characters_in_a_String() {
 		System.out.println("length_returns_the_number_of_characters_in_a_String"); // FOR DEMONSTRATION PURPOSES ONLY, don't do this in your own tests
 
 		/* The assertEquals method validates that two values are equal and
 		 * fails the test if they are not equal */
 
-		String theString = "Java"; // Arrange
-		int length = theString.length(); // Act
-		Assert.assertEquals(4, length); // Assert
+		String theString = "Java"; // Arrange // set up/define/initialize test data
+		int length = theString.length(); // Act // perform the process of test
+		//   assert equals expected value and result
+		Assert.assertEquals(4, length); // Assert // check to see if process did what you expected
+		// assert the value in length equals 4
 	}
 
 	@Test
@@ -85,6 +87,7 @@ public class LectureTest {
 		 * This is particularly helpful with assertTrue as otherwise the failure output would simply
 		 * state "Expected: true Actual: false", which sometimes isn't much help in figuring out
 		 * what went wrong */
+										
 		Assert.assertTrue("String did not start with Hello as expected.", startsWithHello); // Assert
 	}
 
