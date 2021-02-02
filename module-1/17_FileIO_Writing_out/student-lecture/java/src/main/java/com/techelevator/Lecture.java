@@ -23,7 +23,7 @@ public class Lecture {
 		System.out.print("Enter the path of a file or directory >>> ");
 		String path = userInput.nextLine();
 		File f = new File(path);
-
+		
 		/* 
 		 * The File class allows us to inspect various attributes of a file system object 
 		 */
@@ -99,6 +99,7 @@ public class Lecture {
 		String message = userInput.nextLine();
 		
 		try(PrintWriter writer = new PrintWriter(newFile)) {
+		
 			writer.println(message);
 		} // When we exit the try block, this cause the file to be closed and an automatic flush of the buffer to trigger
 		

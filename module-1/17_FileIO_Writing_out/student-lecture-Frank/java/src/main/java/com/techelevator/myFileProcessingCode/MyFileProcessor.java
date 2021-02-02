@@ -2,6 +2,8 @@ package com.techelevator.myFileProcessingCode;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.Scanner;
 
 public class MyFileProcessor {
@@ -9,21 +11,31 @@ public class MyFileProcessor {
 	/*********************************************************************************
 	 * This program will read each line from the numbers.txt file
 	 * and write each number in the line and the sum of those numbers to a file
-	 * @throws FileNotFoundException 
+	 * @throws IOException 
 	 *********************************************************************************/
 	
-	public static void main(String[] args) throws FileNotFoundException {
+	public static void main(String[] args) throws IOException {
+		
+		System.out.println("Program has started");
 		
 		// Define the input file and Scanner object to read it - file is in the data folder of the project folder
 		File myFile = new File("./data/numbers.txt");  // Assign a File object to numbers.txt
 
 		// Check to be sure the File Object is assigned an existing file - terminate if not
 		if (!myFile.exists() || !myFile.isFile()) {
-			System.out.println("path specified is not an existing file");
+	System.out.println("path specified is not an existing file");
 			System.exit(16);   // terminate program
-		}
+		}						// when a program exits an optional return may be sent back
+					// if the program was run from a shell script the return can be checked so the script may take action
 		
+					// return codes are usually a multiple of four
 		Scanner theFile = new Scanner(myFile);         // Assign the File Object to a Scanner
+		
+		// Define output file we are writing the program to 
+		File outputFile = new File("program.out");
+		outputFile.createNewFile();
+		PrintWriter fileWriter = new PrintWriter(outputFile);
+		
 		
 		int lineTotal  = 0;  // hold the sum of the numbers in the line we read
 		String theLine = ""; // hold the line with the numbers from the file
@@ -41,14 +53,16 @@ public class MyFileProcessor {
 				// Add each value from the line to sum
 				lineTotal += aValue;
 				// Display the values in the line
-				System.out.println("Input Line Value[" +i+"] is: " + aValue);
+				fileWriter.println("Input Line Value[" +i+"] is: " + aValue);
 			}
 		//    Display the sum of the values
-			System.out.println("The sum of the values in the line is: " + lineTotal);
+		fileWriter.println("The sum of the values in the line is: " + lineTotal);
 		//    Reset sum before looping again to be sure we only get the sum of the numbers in the line
 		    lineTotal = 0;
 		}
 		// Close the file to avoid a resource leak
 		theFile.close();
+		fileWriter.close();
+		System.out.println("Program has ended..");
 	}
 }

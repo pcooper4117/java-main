@@ -8,20 +8,20 @@ public class WordSearch {
 		Scanner fileReader = new Scanner(theFile);
 		Scanner keyboard = new Scanner(System.in);
 		System.out.println("What is the word you are searching for?");
-		String input = ""; 
+		String input = ""; 	// line from user
 		input = keyboard.nextLine();
 		System.out.println("Should the search be case sensitive? (Y/N)");
-		String caseSensitive = "";
+		String caseSensitive = ""; // case from user
 		caseSensitive = keyboard.nextLine();
-		int lineCounter = 0;
+		int lineCounter = 0; // use for line number
 		String line = "";
 		if(caseSensitive.equalsIgnoreCase("Y")) {
-			while(fileReader.hasNextLine()) {
+			while(fileReader.hasNextLine()) {  // scroll through file
 				line = fileReader.nextLine();
-				lineCounter++;
-				String[] split = line.split(" ");
-				for(int i=0; i < split.length; i++) {
-					if(split[i].equals(input)) {
+				lineCounter++;					// add to line counter
+				String[] split = line.split(" ");	// take from file and into array
+				for(int i=0; i < split.length; i++) {	// loop through array 
+					if(split[i].equals(input)) {		 
 						System.out.println(lineCounter + ") " + line);
 					}
 				}	
