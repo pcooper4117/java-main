@@ -15,6 +15,8 @@ public class WordSearch {
 		caseSensitive = keyboard.nextLine();
 		int lineCounter = 0; // use for line number
 		String line = "";
+		
+		
 		if(caseSensitive.equalsIgnoreCase("Y")) {
 			while(fileReader.hasNextLine()) {  // scroll through file
 				line = fileReader.nextLine();
