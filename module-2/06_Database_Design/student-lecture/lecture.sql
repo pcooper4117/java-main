@@ -63,5 +63,63 @@
 --
 --      ALTER TABLE IF EXISTS table-name RENAME TO new-table-name  - Successful if table exists or not
 --
----------------------------------------------------------------------------------------------------------------
+----------------------c-----------------------------------------------------------------------------------------
+--create table
+drop table if exists artist cascade;
+drop table if exists paintings cascade;
+drop table if exists customer cascade;
+drop table if exists purchase cascade;
 
+create table artist
+(
+artist_id      serial                not null
+,artist_name  character varying (50)         not null
+,constraint pk_artist_artist_id PRIMARY KEY(artist_id)
+);
+
+
+create table paintings 
+(
+painting_id serial
+,artist_id int not null 
+, painting_title character varying(100) 
+,constraint pk_paintngs_painting_id primary key(painting_id)
+,constraint fk_artist_artist_id foreign key(artist_id) references artist(artist_id)
+);
+
+
+create table customer
+(
+customer_id serial 
+,customer_name character varying(40)
+, customer_address character varying(100)
+,customer_city character varying(100)
+,customer_state character(2)
+,customer_phone character varying(12)
+,constraint customer_constraint primary key(customer_id)
+);
+
+create table purchase
+(
+purchase_id serial
+,customer_id integer not null 
+, painting_id integer not null
+, purchase_date date not null
+, purchase_price numeric(12,2)
+,constraint pk_purchase_purchase_id primary key(purchase_id)
+
+);
+
+ALTER TABLE paintings                   -- NAME OF DEPENDANT
+ADD FOREIGN KEY(artist_id)               -- COLUMN OF DEPENDANT 
+ REFERENCES artist(artist_id)            -- NAME OF PARENT TABLE AND PRIMARY KEY IN THAT TABLE
+;
+
+ALTER TABLE purchase                  
+ADD FOREIGN KEY(customer_id)               
+ REFERENCES customer(customer_id) 
+ ;
+ ALTER TABLE purchase                  
+ADD FOREIGN KEY(painting_id)               
+ REFERENCES paintings (painting_id) 
+ ;
