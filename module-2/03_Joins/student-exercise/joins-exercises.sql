@@ -117,14 +117,59 @@ and film.rating = 'G'
 -- 9. All of the ‘Sci-Fi’ films released in 2006
 -- (61 rows)
 
+
+select title
+from category
+inner join
+film_category
+on film_category.category_id = category.category_id
+inner join
+film
+on film.film_id = film_category.film_id
+where category.name =  'Sci-Fi'
+and release_year = 2006
+;
+
 -- 10. All of the ‘Action’ films starring Nick Stallone
 -- (2 rows)
+select title
+from actor
+ inner join
+ film_actor
+   on actor.actor_id = film_actor.actor_id
+    inner join
+     film
+     on film.film_id = film_actor.film_id
+      inner join
+      film_category
+        on film_category.film_id = film.film_id
+        inner join
+        category
+        on
+        category.category_id = film_category.category_id
+        where actor.first_name = 'NICK'
+        and actor.last_name = 'STALLONE'
+        and category.name = 'Action'
+        ;
 
--- 11. The address of all stores, including street address, city, district, and country
+
+ --11. The address of all stores, including street address, city, district, and country
 -- (2 rows)
 
 -- 12. A list of all stores by ID, the store’s street address, and the name of the store’s manager
--- (2 rows)
+-- (2 rows)select address, first_name, last_name
+select address, first_name, last_name
+from store
+ inner join
+ staff
+  on
+  store.manager_staff_id = staff.staff_id
+ inner join
+  address
+   on
+  store.address_id = address.address_id
+        ;
+
 
 -- 13. The first and last name of the top ten customers ranked by number of rentals
 -- (#1 should be “ELEANOR HUNT�? with 46 rentals, #10 should have 39 rentals)
@@ -135,6 +180,20 @@ and film.rating = 'G'
 -- 15. The store ID, street address, total number of rentals, total amount of sales (i.e. payments), and average sale of each store.
 -- (NOTE: Keep in mind that while a customer has only one primary store, they may rent from either store.)
 -- (Store 1 has 7928 total rentals and Store 2 has 8121 total rentals)
+select store.store_id, address.address_id, count(*), sum(payment.amount),avg(payment.amount)
+from store
+inner join address
+on store.address_id = address.address_id
+inner join inventory
+on store.store_id = inventory.store_id
+ inner join rental
+on inventory.inventory_id = rental.inventory_id
+inner join payment
+on rental.rental_id = payment.rental_id
+group by store.store_id, address.address_id
+;
+
+
 
 -- 16. The top ten film titles by number of rentals
 -- (#1 should be “BUCKET BROTHERHOOD�? with 34 rentals and #10 should have 31 rentals)
@@ -147,6 +206,20 @@ and film.rating = 'G'
 
 -- 19. The top 10 actors ranked by number of rentals of films starring that actor
 -- (#1 should be “GINA DEGENERES�? with 753 rentals and #10 should be “SEAN GUINESS�? with 599 rentals)
+select count(inventory.film_id), first_name, last_name
+from actor
+inner join
+film_actor
+on film_actor.actor_id = actor.actor_id
+inner join film
+on film.film_id = film.film_id
+inner join inventory
+on inventory.film_id = film.film_id
+inner join rental
+on rental.inventory_id = inventory.inventory_id
+group by actor.actor_id
+order by 1 desc
+limit 10
 
 -- 20. The top 5 “Comedy�? actors ranked by number of rentals of films in the “Comedy�? category starring that actor
 -- (#1 should have 87 rentals and #5 should have 72 rentals)

@@ -2,7 +2,7 @@
 -- Referential Integrity - Enforcement of the Parent-Dependent relatiohnship
 --                         ie. Ensure that every foreign key value has a matching primary key
 --
--- Constraints are rules regarding the data that must be complied with:
+-- Constraints are rules regarding the data that must be complied with when inserting and updateing
 --
 --  NOT NULL - Column must have a value
 --
@@ -20,7 +20,8 @@
 --  DEFAULT - Specify a default value for column if no value is supplied on INSER
 ---------------------------------------------------------------------------------------------------------------------------------------
 -- Unit Of Work (UOW) - A recoverable sequence of operations within an application process
--- 
+-- all steps to have a completed peice of work have been completed 
+
 -- BEGIN TRANSACTION - Mark the start of a unit of work
 -- 
 -- COMMIT - End a unit of work and save changes - automatically done if no errors
@@ -57,13 +58,37 @@
 -- INSERT
 
 -- 1. Add Klingon as a spoken language in the USA
+begin transaction;  -- incase somthing is wrong we can undo or rollback work
+
+insert into countrylanguage
+(countrycode, language, isofficial, percentage)
+values('USA', 'Klingon', true, 16)
+;
+select * from countrylanguage where countrycode = 'USA'
+;
+
+rollback; 
 
 -- 2. Add Klingon as a spoken language in Great Britain
-
+begin transaction;
+insert into countrylanguage
+(countrycode, language, isofficial, percentage)
+values('GBR', 'Klingon', true, 36)
+;
+select * from countrylanguage where language = 'Klingon';
+rollback;
 
 -- UPDATE
 
 -- 1. Update the capital of the USA to Houston
+begin transaction;
+update country
+set captial = 'Houston'
+where code= 'USA'
+;
+select * from country where code = 'USA'
+
+rollback;
 
 -- 2. Update the capital of the USA to Washington DC and the head of state
 

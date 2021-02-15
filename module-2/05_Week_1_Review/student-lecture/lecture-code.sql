@@ -134,31 +134,69 @@ select * from countrylanguage where countrycode = (select code from country wher
 rollback;
 
 -- 2. Delete all occurrences of the Klingon language 
+begin transaction;
+delete  from countrylanguage where language = 'Klingon';
 
+
+rollback;
 
 -- REFERENTIAL INTEGRITY
 
 -- 1. Try just adding Elvish to the country language table.
-
+--begin transaction;
+--
+--insert into countrylanguage                     -- add a row to the country language table
+--(countrycode, language, isofficial, percentage) -- list of columns we are providing values for - all non-null columns  
+--values('???', 'Elvish', ???, ??)              -- values for the columns in the order of list above
+--;
+--select * from countrylanguage where language = 'Elvish';
+--
+--
+--rollback;
 -- 2. Try inserting English as a spoken language in the country ZZZ. What happens?
+-- countrylanguage is a dependatnt of country table
+-- its foreign key must match a primary key value that already exists in the county table
+-- when we try to insert a langauge for a country code that is not in the country table 
+-- we get a foriegn key violation
+begin transaction;
+insert into countrylanguage                     -- add a row to the country language table
+(countrycode, language, isofficial, percentage) -- list of columns we are providing values for - all non-null columns  
+values('ZZZ', 'English', false, 10)              -- values for the columns in the order of list above
+;
+select * from countrylanguage where language = 'English';
 
+rollback;
 -- 3. Try deleting the country USA. What happens?
-
+-- country table has two dependants - countryLangauge and city
+begin transaction;
+delete from country where code = 'USA';
+rollback;
 
 -- CONSTRAINTS
 
 -- 1. Try inserting English as a spoken language in the USA
-
+-- this fails with a unique violation due to there already being and entry in the table
+begin transaction;
+insert into countrylanguage
+(countrycode, language, isofficial, percentage)
+values('USA', 'English', false, 90)
+;
+rollback;
 -- 2. Try again. What happens?
 
 -- 3. Let's relocate the USA to the continent - 'Outer Space'
+begin transaction;
+update country
+set continent = 'Outer Space'
+where code = 'USA';
 
+rollback;
 
 -- How to view all of the constraints
-
-SELECT * FROM INFORMATION_SCHEMA.TABLE_CONSTRAINTS
-SELECT * FROM INFORMATION_SCHEMA.CONSTRAINT_COLUMN_USAGE
-SELECT * FROM INFORMATION_SCHEMA.REFERENTIAL_CONSTRAINTS
+-- to see all contraints on all tables 
+SELECT * FROM INFORMATION_SCHEMA.TABLE_CONSTRAINTS;
+SELECT * FROM INFORMATION_SCHEMA.CONSTRAINT_COLUMN_USAGE;
+SELECT * FROM INFORMATION_SCHEMA.REFERENTIAL_CONSTRAINTS;
 
 
 -- TRANSACTIONS
