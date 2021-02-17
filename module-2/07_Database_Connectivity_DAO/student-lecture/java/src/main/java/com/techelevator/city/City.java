@@ -1,12 +1,14 @@
 package com.techelevator.city;
+// 	CLASS SHOULD HAVE SAME NAME AS TABLE
+// ALTHOUGH NOT REQUIRED VARIABLE NAMES IN POJO SHOULD MATCH COLUMN NAMES
 
 public class City {
-	private Long id;
-	private String name;
-	private String countryCode;
-	private String district;
-	private int population;
-
+	private Long 	 id;				//serial
+	private String	 name;				// varchar
+	private String	 countryCode;		//bpchar
+	private String	 district;			// varchar
+	private int 	 population;		// int4 (integer)
+	
 	public Long getId() {
 		return id;
 	}

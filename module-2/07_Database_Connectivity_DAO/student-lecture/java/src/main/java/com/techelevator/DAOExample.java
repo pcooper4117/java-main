@@ -14,11 +14,11 @@ public class DAOExample {
 		worldDataSource.setUrl("jdbc:postgresql://localhost:5432/world");
 		worldDataSource.setUsername("postgres");
 		worldDataSource.setPassword("postgres1");
-		
+		// pass the cityDAO constructor the data source we want it to use
 		CityDAO dao = new JDBCCityDAO(worldDataSource);
 		
-		City smallville = new City();
-		smallville.setCountryCode("USA");
+		City smallville = new City();	// instantiate a city
+		smallville.setCountryCode("USA"); // assign a values
 		smallville.setDistrict("KS");
 		smallville.setName("Smallville");
 		smallville.setPopulation(42080);

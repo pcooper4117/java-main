@@ -3,10 +3,8 @@ package com.techelevator;
 public class HotelReservation {
 public String name;
 public int numberOfNights;
-public boolean requiresCleaning;
-public boolean miniBarUsed;
 public Double estimatedTotal;
-public Double cleaningCost;
+
 
 
 
@@ -41,14 +39,22 @@ public void setEstimatedTotal(Double estimatedTotal) {
 }
 
 
-
+	
+	public void cleaningAndMiniBar( boolean miniBarUsed, boolean requiresCleaning) {
+	if (miniBarUsed == true){
+	
+		 this.estimatedTotal += 12.99;
+		 }
+	
+		if (requiresCleaning == true) {
+			
+		this.estimatedTotal += 34.99;
+	}
+	}
+	@Override
+	public String toString() {
+		return "HotelReservation [name=" + name + ", numberOfNights=" + numberOfNights + ", estimatedTotal="
+				+ estimatedTotal + "]";
+	}
+	
 }
-	
-	//public boolean cleaningAndMiniBar() {
-	//	if (miniBarUsed == true) 
-		//	 this.estimatedTotal + 12.99;
-		//if (requiresCleaning == true)
-		//	this.requiresCleaing + 34.99
-		
-	//}
-	

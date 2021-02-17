@@ -9,7 +9,9 @@ public class Module1CodingAssessment {
 		System.out.println("Module 1 Coding Assessment\n");
 		
 		// Put the code to test your assessment classes here
+	HotelReservation hotelReservation1 = new HotelReservation("name", 1 );
 	
-	}
+	hotelReservation1.cleaningAndMiniBar(true, true);
+	} 
 
 }
