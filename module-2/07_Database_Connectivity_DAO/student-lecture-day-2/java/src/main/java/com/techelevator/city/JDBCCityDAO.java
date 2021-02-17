@@ -55,37 +55,53 @@ public class JDBCCityDAO implements CityDAO {  // implement the interface for th
 	}
 	
 	@Override
-	public City findCityById(long id) {
+	public City findCityById(long id) { // return a city object for the city ID passed in by user
 		City theCity = null;
 		String sqlFindCityById = "SELECT id, name, countrycode, district, population "+
 							   "FROM city "+
 							   "WHERE id = ?";
 		SqlRowSet results = jdbcTemplate.queryForRowSet(sqlFindCityById, id);
+		// one result no loop needed only if
+		// if a row was returned from the select position row to cursor
 		if(results.next()) {
 			theCity = mapRowToCity(results);
+			// since java doesnt know how to handle sql row set data we need to convert to object
 		}
-		return theCity;
+		return theCity; // returns the city created
 	}
 
 	@Override
-	public List<City> findCityByCountryCode(String countryCode) {
-		ArrayList<City> cities = new ArrayList<>();
+	public List<City> findCityByCountryCode(String countryCode) { // return a list of city objects
+		ArrayList<City> cities = new ArrayList<>(); // define and instantiate 
+		// define a  string to hold the sql select we want to run with placeholders not untill this method is called
 		String sqlFindCityByCountryCode = "SELECT id, name, countrycode, district, population "+
 										   "FROM city "+
-										   "WHERE countrycode = ?";
+										   "WHERE countrycode = ?"; // code a placeholder
+		// Execute the sql statement with values/ variables for any placeholders
 		SqlRowSet results = jdbcTemplate.queryForRowSet(sqlFindCityByCountryCode, countryCode);
+		// for multiple rows we use a loop to process
+		while(results.next()) { 					 // loop while there are rows in the sql row set
+			City theCity = mapRowToCity(results);  		// assign data from current row 
+			cities.add(theCity);							 // add city object to arrayList
+		}
+		return cities;
+	}
+
+
+	@Override
+	public List<City> findCityByDistrict(String district) {
+		ArrayList<City> cities = new ArrayList<>();
+		String sqlFindCityByDistrict = "SELECT id, name, countrycode, district, population " +
+									   "FROM city " +
+									   "WHERE district = ?";
+		SqlRowSet results = jdbcTemplate.queryForRowSet(sqlFindCityByDistrict, district);
 		while(results.next()) {
 			City theCity = mapRowToCity(results);
 			cities.add(theCity);
 		}
 		return cities;
 	}
-
-	@Override
-	public List<City> findCityByDistrict(String district) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	
 
 	@Override
 	public void update(City city) {
@@ -112,7 +128,7 @@ public class JDBCCityDAO implements CityDAO {  // implement the interface for th
 		SqlRowSet nextIdResult = jdbcTemplate.queryForRowSet("SELECT nextval('seq_city_id')");
 	
 		// We need to get the next city id out of the SQLRowSet and into a Java variable
-		
+		// since we know only one row will be returned by this select we dont need a loop to process
 		if(nextIdResult.next()) {               // if the SQLRowSet called nextIDResult has any data, move to the next line of data
 			return nextIdResult.getLong(1);     // get the long value in column 1 of the line and return it
 		} else {                                // if there is no data in nextIDResult, throw a RuntimeException
@@ -120,10 +136,10 @@ public class JDBCCityDAO implements CityDAO {  // implement the interface for th
 		}
 	}
 
-	private City mapRowToCity(SqlRowSet results) {
-		City theCity;
-		theCity = new City();
-		theCity.setId(results.getLong("id"));
+	private City mapRowToCity(SqlRowSet results) { // method for java to handle the sql row set data
+		City theCity;								// will copy data from an  sql row set passed in as a parmaeter to city object
+		theCity = new City();							// return the city object
+		theCity.setId(results.getLong("id"));  // copy sql rowset using get methods using setters
 		theCity.setName(results.getString("name"));
 		theCity.setCountryCode(results.getString("countrycode"));
 		theCity.setDistrict(results.getString("district"));

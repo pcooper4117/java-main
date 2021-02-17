@@ -1,5 +1,7 @@
 package com.techelevator;
 
+import java.util.ArrayList;
+
 // This is application program to used DAO to access the database
 
 import org.apache.commons.dbcp2.BasicDataSource;
@@ -29,7 +31,20 @@ public class DAOExample {
 		dao.save(smallville);  // Use the DAO save method to add the new City to the database
 		
 		City theCity = dao.findCityById(smallville.getId());
+		// get a list of cities in usa from the database
+		// we need to cast the return object from the findCityByCOuntryCode() method
+		// because it returns a list<city> and we need an arrayList<City>
 		
+			ArrayList<City> listOfCities = (ArrayList<City>) dao.findCityByCountryCode("USA");
+			
+			for (City aCity : listOfCities) {
+				System.out.println("a USA city in the database is: " + aCity.getName());
+			}
+		 listOfCities = (ArrayList<City>) dao.findCityByDistrict("Ohio");
+			
+			for (City aCity : listOfCities) {
+				System.out.println("a USA city in the database is: " + aCity.getName());
+			}
 	}
 
 }
