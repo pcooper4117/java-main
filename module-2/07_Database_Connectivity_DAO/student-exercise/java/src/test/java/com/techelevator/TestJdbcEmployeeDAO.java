@@ -53,16 +53,9 @@ import com.techelevator.projects.model.jdbc.JDBCEmployeeDAO;
 		String sqlInsertDepartment = "INSERT INTO Department" + " (department_id, name)"
 				+ " Values (45, Meatball)";
 				jdbcTemplate.update(sqlInsertDepartment);
-		
-		
 		String sqlInsertEmployee = "INSERT INTO employee" + " (employee_id, department_id, first_name, last_name, birth_date, gender, hire_date)"
 															+ " Values (056424254254, 45, 'John', 'Doe', '2020, 1, 1', 'M', '2020, 2, 1')";
-		
 		jdbcTemplate.update(sqlInsertEmployee);
-		
-		
-		
-		
 		
 		dao = new JDBCEmployeeDAO(dataSource);
 
@@ -74,8 +67,9 @@ import com.techelevator.projects.model.jdbc.JDBCEmployeeDAO;
 	public void rollback() throws SQLException {
 		dataSource.getConnection().rollback();
 	}
+	@Test
 	public void test_search_Employee_By_Name() {
-	Employee aEmployee = new Employee();
+	Employee aEmployee = createEmployee();
 	aEmployee.setFirst_name(test_first_name);
 	aEmployee.setLast_name(test_last_name);
 	aEmployee.setBirth_date(test_birth_date);
@@ -88,8 +82,36 @@ import com.techelevator.projects.model.jdbc.JDBCEmployeeDAO;
   assertEquals(1,results.size());
  assertEquals(results.get(0).getFirst_name(), aEmployee.getFirst_name());
  assertEquals(results.get(0).getFirst_name(), aEmployee.getLast_name());
- 
- 
- 
 	}
+	
+	 @Test 
+	 public void getAllEmployees() {
+		 Employee aEmployee =createEmployee();
+		 List<Employee> results = dao.getAllEmployees();
+		 assertNotNull(results);
+		 assertEquals(13, results.size());
+	 
+	 }
+
+	 @Test
+	 public void getEmployeesByDeptId() {
+	 Employee aEmployee = createEmployee();
+	 List<Employee> returnedEmployee = dao.getEmployeesByDepartmentId(aEmployee.getEmployee_id());
+	 assertNotNull(returnedEmployee);
+	 }
+ //////////////////////////////////////////////////////////////////////////////////////////
+	 private Employee createEmployee () {
+			  Employee aEmployee = new Employee();	
+			aEmployee.setFirst_name(test_first_name);
+			aEmployee.setLast_name(test_last_name);
+			aEmployee.setBirth_date(test_birth_date);
+			aEmployee.setGender(test_gender);
+			aEmployee.setHire_date(test_hire_date);
+			aEmployee.setDepartment_id(test_department_id);
+			aEmployee.setEmployee_id(test_employee_id);
+			
+			return aEmployee;
+		}
+
+	
 	}
