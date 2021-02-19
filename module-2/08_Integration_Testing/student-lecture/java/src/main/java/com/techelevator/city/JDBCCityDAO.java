@@ -18,6 +18,11 @@ public class JDBCCityDAO implements CityDAO {
 
 	@Override
 	public void save(City newCity) {
+		if		 ( newCity.getName() == null 
+				|| newCity.getCountryCode() == null
+				|| newCity.getDistrict() == null ) {
+			throw new RuntimeException ("at least one value in the city object is null");
+		}
 		String sqlInsertCity = "INSERT INTO city(id, name, countrycode, district, population) "
 				+ "VALUES(?, ?, ?, ?, ?)";
 		newCity.setId(getNextCityId());

@@ -5,7 +5,7 @@ import java.time.LocalDate;
 public class Employee {
 	// TODO: Place code to describe the columns in the table row here
 	private long employee_id;
-	private int department_id;
+	private long department_id;
 	private String first_name;
 	private LocalDate birth_date; 
 	private String gender;
@@ -29,11 +29,11 @@ public class Employee {
 	public void setEmployee_id(long employee_id) {
 		this.employee_id = employee_id;
 	}
-	public int getDepartment_id() {
+	public long getDepartment_id() {
 		return department_id;
 	}
-	public void setDepartment_id(int department_id) {
-		this.department_id = department_id;
+	public void setDepartment_id(long l) {
+		this.department_id = l;
 	}
 	public String getFirst_name() {
 		return first_name;
