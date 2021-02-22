@@ -8,22 +8,24 @@ import org.springframework.web.client.RestTemplate;
 public class HotelService {
 
     private final String API_BASE_URL;
-    private RestTemplate restTemplate = new RestTemplate();
+    private RestTemplate callAPI = new RestTemplate();
 
     public HotelService(String apiURL) {
         API_BASE_URL = apiURL;
     }
 
     public Hotel[] listHotels() {
-        return null;
+    	
+        return callAPI.getForObject(API_BASE_URL + "hotels", Hotel[].class);
     }
 
     public Review[] listReviews() {
-        return null;
+    	 return callAPI.getForObject(API_BASE_URL + "review", Review[].class);
+       
     }
 
     public Hotel getHotelById(int id) {
-        return null;
+    return callAPI.getForObject(API_BASE_URL + "hotels/"+id, Hotel.class);
     }
 
     public Review[] getReviewsByHotelId(int hotelID) {
