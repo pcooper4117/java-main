@@ -67,19 +67,26 @@ public class AuctionService {
 
     public Auction add(String auctionString) {
         // place code here
-        return null;
+       Auction aAuction = makeAuction(auctionString);           // use the helper method to create a auction object
+       HttpHeaders theHeaders = new HttpHeaders();  
+       theHeaders.setContentType(MediaType.APPLICATION_JSON); 
+       HttpEntity anEntity = new HttpEntity(aAuction, theHeaders); 
+       aAuction= restTemplate.postForObject(API_URL, anEntity, Auction.class);
+        return aAuction;
     }
-
     public Auction update(String auctionString) {
-        // place code here
-        return null;
+    	Auction aAuction = makeAuction(auctionString); 
+   	  	HttpHeaders theHeaders = new HttpHeaders();
+   	  	theHeaders.setContentType(MediaType.APPLICATION_JSON);
+   	  	HttpEntity anEntity = new HttpEntity(aAuction, theHeaders);
+   	  	restTemplate.put( API_URL + "/" + aAuction.getId(), anEntity);
+   	  	return aAuction;
     }
-
     public boolean delete(int id) {
-    	// place code here
-    	return false; 
+    	restTemplate.delete(API_URL + "/" + id);
+    	
+		return true;
     }
-
     private HttpEntity<Auction> makeEntity(Auction auction) {
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);

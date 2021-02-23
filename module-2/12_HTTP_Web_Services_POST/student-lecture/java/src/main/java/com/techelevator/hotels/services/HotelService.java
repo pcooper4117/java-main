@@ -28,8 +28,15 @@ public class HotelService {
    * @return Reservation
    */
   public Reservation addReservation(String newReservation) {
-    // TODO: Implement method
-    return null;
+    // TO add reservation to the api server we ned a post http request 
+	  Reservation aReservation = makeReservation(newReservation);
+	  HttpHeaders theHeader = new HttpHeaders();
+	  theHeader.setContentType(MediaType.APPLICATION_JSON);
+	  
+	  HttpEntity anEntity = new HttpEntity(aReservation, theHeader);
+	  
+	  aReservation = restTemplate.postForObject(BASE_URL + "reservations", anEntity, Reservation.class);
+    return aReservation;
   }
 
   /**
@@ -40,8 +47,12 @@ public class HotelService {
    * @return
    */
   public Reservation updateReservation(String CSV) {
-    // TODO: Implement method
-    return null;
+    Reservation aReservation = makeReservation(CSV);
+    HttpHeaders theHeader = new HttpHeaders();
+    theHeader.setContentType(MediaType.APPLICATION_JSON);
+    HttpEntity anEntity = new HttpEntity(aReservation, theHeader);
+    restTemplate.put(BASE_URL + "reservations/" + aReservation.getId(), anEntity);
+    return aReservation;
   }
 
   /**
