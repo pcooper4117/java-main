@@ -6,12 +6,17 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
 public class Reservation {
-
+@Min (value = 1)
     private int id;
+@Min (value=1)
     private int hotelID;
     private String fullName;
+    @NotNull
     private String checkinDate;
+    @NotNull
     private String checkoutDate;
+    @Min(value=1)
+    @Max(value =4)
     private int guests;
 
     public Reservation() {
