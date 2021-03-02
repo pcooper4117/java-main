@@ -1,9 +1,11 @@
 package com.techelevator.api.review.client;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
 import org.apache.commons.dbcp2.BasicDataSource;
+import org.springframework.web.client.RestTemplate;
 
 import com.techelevator.api.review.client.model.Department;
 import com.techelevator.api.review.client.model.DepartmentDAO;
@@ -142,8 +144,11 @@ public class ProjectsCLI {
 
 	private void handleListAllDepartments() {
 		printHeading("All Departments");
-		List<Department> allDepartments = departmentDAO.getAllDepartments();
-		listDepartments(allDepartments);
+	//	List<Department> allDepartments = departmentDAO.getAllDepartments();
+		Department[] deptArray;
+		RestTemplate callApi =  new RestTemplate();
+		deptArray = callApi.getForObject("http://localhost:8080/departments", Department[].class);
+		listDepartments(Arrays.asList(deptArray));
 	}
 
 	private void handleDepartmentSearch() {
