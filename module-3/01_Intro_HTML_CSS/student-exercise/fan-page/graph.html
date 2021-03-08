@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 1 - Reservation</title>
+    <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+    <header>
+        <h1> Lord of the Rings FanPage</h1>
+    
+    </header>
+    <main>
+        <h2>Reservation Form</h2>
+        <form method="POST" action="https://madeUpServer/api/Graph">
+            <div>
+                <label for="nameField">Name:</label>
+                <input type ="text" id="nameField"/>
+            </div>
+            <div>
+                <label for="favColor">Favorite Color?:</label>
+                <input type ="text" id="favColor"/>
+            </div>
+            <div>
+            <label for="dateOfBirth" >Date of Birth: </label>
+            <input type="date" id="dateOfBirth" name="dateOfBirth"/>
+            </div>
+            <div>
+                <label for="emailAddress">Enter Email address:</label>
+                <input type ="text" id="emailAddress"/>
+            </div>
+            <div>
+                <label for="favNumber">Favorite Number?:</label>
+                <input type ="text" id="favNumber"/>
+            </div>
+        <div>
+            <label for ="isDataCorrect">Is the Data Correct?</label>
+            <input type="checkbox" id="isDataCorrect" name="isDataCorrect"/>
+        </div>
+            </div>
+        </form>
+    </main>
+</body>
+</html>
