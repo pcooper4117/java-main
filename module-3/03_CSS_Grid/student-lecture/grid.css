@@ -1,0 +1,48 @@
+/*set column widths for the grid for the div  */
+
+.container{
+    display: grid;
+
+    grid-template-columns: 1fr 3fr 1fr;
+    /*using fractional units the browser will determine the size so we dont have to
+  define three columns in the grid where the first and last are same and middle is three times*/
+
+    grid-template-areas :       /* define rows and names of the cells*/
+    "header header header"    /*first row is all columns and called header*/
+    "menu-nav main upcoming-events"
+    "footer footer footer"
+    ;
+    grid-gap: 10px;
+    height: 100vh;  /*we want the container class(body to fill 100%) */
+    /* assign html components to the grid */  
+}
+header {
+    grid-area: header;
+}
+
+nav#menu-nav{
+    grid-area: menu-nav;
+}
+
+main{
+    grid-area: main;
+}
+
+aside{
+    grid-area: upcoming-events;
+}
+
+footer{
+    grid-area: footer;
+}
+/* add responsive design */
+@media screen and (max-width: 768px){
+    .container {  /*restyle elements with the class container */
+        grid-template-areas: 
+        "header"
+        "menu-nav"
+        "upcoming-events"
+        "footer";
+        grid-template-columns: 1fr;
+    }
+}
