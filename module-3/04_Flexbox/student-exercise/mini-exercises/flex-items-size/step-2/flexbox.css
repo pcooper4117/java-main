@@ -1,0 +1,13 @@
+body div{
+    display:flex;
+    flex-grow: 1;
+    justify-content: center;
+}
+
+body div:nth-child(even){
+    flex-grow: 2;
+}
+
+body div:nth-child(odd){
+    flex-grow: .5;
+}

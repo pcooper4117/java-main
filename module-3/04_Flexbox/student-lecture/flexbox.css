@@ -1,0 +1,50 @@
+body, 
+#hero footer,
+#featured section,
+#featured section article div,
+#all-items section,
+#all-items section article{
+    display: flex; /* flex box lay out for all the elements listed above */
+}
+
+body, 
+#all-items section{
+    flex-direction: column; /* make columns in flexbox*/ 
+}
+/* center the content horizontally*/
+ body{ /* all visible content*/ 
+    align-items: center;
+ } 
+
+ #featured section article div {
+     justify-content: center;
+ }
+
+ #all-items section article {
+     justify-content: center;
+ }
+
+ /* center content vertically*/ 
+#hero footer{
+    align-items: center;
+}
+ 
+#all-items section article{
+    align-items: center;
+}
+
+#hero footer {
+    justify-content: space-between;
+}
+
+#all-items article div:last-child{ /*style the last child element in the div */ 
+flex-basis: 80%;    /* flexBasis says we want to style based on the previous element*/ 
+}
+
+#all-items article:nth-child(even) div:first-child{ /* style every other child in all items*/ 
+    order: 2;
+
+}
+#all-items  article:nth-child(even) {
+    flex-direction: row-reverse;
+}

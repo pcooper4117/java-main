@@ -1,0 +1,8 @@
+body div {
+    display: flex;
+}
+
+.bio:nth-child(2) img {
+    order:  2;
+
+}
