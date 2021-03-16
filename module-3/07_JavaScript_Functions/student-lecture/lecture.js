@@ -27,7 +27,10 @@ function printToConsole(value) {
  * @param {number} firstParameter the first parameter to multiply
  * @param {number} secondParameter the second parameter to multiply
  */
-
+function multiplyTogether(num1, num2){
+  let result = num1 * num2;
+  return result;
+}
 /**
  * This version makes sure that no parameters are ever missing. If
  * someone calls this function without parameters, we default the
@@ -38,8 +41,11 @@ function printToConsole(value) {
  * @param {number} [firstParameter=0] the first parameter to multiply
  * @param {number} [secondParameter=0] the second parameter to multiply
  */
+function multiplyNoUndefined(firstParameter=0, secondParameter=0){
 
 
+return firstParameter * secondParameter;
+}
  
 /**
  * Functions can return earlier before the end of the function. This could be useful
@@ -95,12 +101,25 @@ function createSentenceFromUser(name, age, listOfQuirks = [], separator = ', ') 
 /**
  * Takes an array and, using the power of anonymous functions, generates
  * their sum.
+ * .reduce() goes through the array one element at a time passing the element to the function
+ * thats used as the argument
+ * syntax: arrayName.reduce(anonymous-function(reducer, element-in-array))
+ * the anonymous function takes two parameters: reducer and element
+ *      the reducer will hold th value to the previous call to the anon func
+ *      (result from prior execution)
+ *      
  *
  * @param {number[]} numbersToSum numbers to add up
  * @returns {number} sum of all the numbers
  */
 function sumAllNumbers(numbersToSum) {
-  return numbersToSum.reduce();
+  // the variable sum (reducer) will contain the sum of all the numbers in the array
+ // the variable aNumber will be the current element in the array passed to the anonFunc
+ 
+  return numbersToSum.reduce((sum, aNumber) =>{
+                                               return sum += aNumber;
+                                               
+                                               });
 }
 
 /**
