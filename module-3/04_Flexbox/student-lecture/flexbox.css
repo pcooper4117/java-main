@@ -45,6 +45,6 @@ flex-basis: 80%;    /* flexBasis says we want to style based on the previous ele
     order: 2;
 
 }
-#all-items  article:nth-child(even) {
+#all-items  article: :nth-child(even) {
     flex-direction: row-reverse;
 }

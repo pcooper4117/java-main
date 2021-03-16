@@ -1,5 +1,6 @@
 package com.techelevator.PatricksStockProject;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Menu {
@@ -31,10 +32,58 @@ public class Menu {
 		 case 2: swingTrade();
 		 break;
 		 
-		 case 3: 
+		
 		 }
 			 
 		 }
+
+	private void dayTrade() {
+	
+		
+	}
+
+	private void swingTrade() {
+		ArrayList<Integer> Nums =new ArrayList<Integer>();
+		 System.out.println("");
+		 System.out.println("Swing Trade Buy Sell or Hold!");
+		 System.out.println("\n We will need to know a few things before we begin.");
+		 System.out.println(" Start by selecting the one hour chart on your trading platform with all indicators displayed");
+		 System.out.println(" Is the stock price two green candle sticks above the Moving Average?");
+		 System.out.print("True");
+		 System.out.print("False");
+		 choice = Scanner.nextInt();
+		 if (true) {
+			 Nums.add(1);
+		 } 
+		 else {
+			 Nums.add(0);
+		 }
+		 System.out.print("Is the Volume over 1 million? ");
+		 choice = Scanner.nextInt();
+		 if (true) {
+			 Nums.add(1);
+		 } 
+		 else {
+			 Nums.add(0);
+		 }
+		 System.out.print("Is the RSI over 45? ");
+		 choice = Scanner.nextInt();
+		 if (true) {
+			 Nums.add(1);
+		 } 
+		 else {
+			 Nums.add(0);
+		 }
+		 System.out.print("Is there a positive crossover on the MACD? ");
+		 choice = Scanner.nextInt();
+		 if (true) {
+			 Nums.add(1);
+		 } 
+		 else {
+			 Nums.add(0);
+		 }
+	}
+		
 
 
 		

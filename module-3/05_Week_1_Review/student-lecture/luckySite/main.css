@@ -80,3 +80,68 @@ main img {
    width: 35%;
 }
 
+/* style the body general overall look and feel for the page */
+body{
+   background-color: var(--secondary-color);
+}
+
+body{
+   display: grid;
+   grid-template-columns: 1fr 2fr 2fr 2fr 2fr 1fr;
+   grid-template-areas: 
+   ".   header    nav    nav   nav . "
+   ".   main   main   main   main ."
+   ".   order-now   order-now    store   store   ."
+   ;
+}
+
+
+header{
+   grid-area: header;
+}
+nav {
+   grid-area: nav;
+}
+main{
+   grid-area: main;
+}
+#order-now{
+   grid-area: order-now;
+}
+#store {
+   grid-area: store;
+}
+
+/*style the nav element to stop being an ordered list*/
+nav ul {
+   display: flex;
+   flex-direction: row;
+   justify-content: space-between;
+   align-items: flex-end;
+
+}
+nav ul li{ /* make button for a list item child of a ul that is a child of nav*/
+list-style: none;
+width: calc(100%/6);
+background-color: var(--primary-color);
+line-height: 50px;
+border-radius: 11px;
+text-align: center;
+}
+
+nav li a{
+   text-transform: uppercase;
+   font-weight: bold;
+
+}
+
+nav{
+   align-self: end;
+   
+}
+main{
+   display: flex;
+   flex-direction: row;
+   background-color: whitesmoke;
+   margin: 20px;
+}
