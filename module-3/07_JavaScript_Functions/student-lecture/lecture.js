@@ -118,7 +118,7 @@ function sumAllNumbers(numbersToSum) {
  
   return numbersToSum.reduce((sum, aNumber) =>{
                                                return sum += aNumber;
-                                               
+
                                                });
 }
 
@@ -129,8 +129,31 @@ function sumAllNumbers(numbersToSum) {
  * @param {number[]} numbersToFilter numbers to filter through
  * @returns {number[]} a new array with only those numbers that are
  *   multiples of 3
+ * 
+ *  .filter() when you want to select elements from an array
+ * .filter will return an array of elements that a call back func said should be in the array
+ * .filter will go through the array one element at  time passing the element to callback
+ * the callback func tells filter to place the current element in the new array
+ * 
+ * syntax: arrayName.filter(callback-func(anElement))
+ *              returns true if the element should be returned
+ * 
  */
-function allDivisibleByThree(numbersToFilter) {}
+function allDivisibleByThree(numbersToFilter) {
+  //return an array of only the numbers divisible by three 
+
+return numbersToFilter.filter((anElement)=> {
+if(anElement % 3 ===0){
+  return true;
+}
+else{
+  return false;
+}
+})
+// function allDivisibleByThree(numbersToFilter){
+// return numbersToFilter.filter(isDivisibleByThreee(anElement))
+//}
+}
 
 
 /**
@@ -138,13 +161,24 @@ function allDivisibleByThree(numbersToFilter) {}
  * Give the browser the html and use the inspect to to run it
  * 
  * The map function will return an array created from the elements passed to it
+ * by returning true- if the callback func returns false it does not add element
+ * 
+ * 
  * 
  * @param - None
- * @returns {arrray created from values passed to it}
+ * @returns {array created from values passed to it}
  */
 
-function mapArrayFunctionExampleFromBook() {
-let numbersToSquare = [1, 2, 3, 4];
+function mapArrayFunctionExampleFromBook(numbersToSquare = [1, 2, 3, 4]
+  ) {
+  //create a new array containing the mathematical square of all the values in another array
+  //use map to create a new array whose elements are result of processing elements in another array
+  //
+  //
+  // call the map func for each element in the array to have elements in array squared
+  // . map () returns a new array with the elements form the array its passed
+
+
 console.log(`Array calling map to create new array with values squared: `)
 console.table(numbersToSquare);
 
@@ -154,4 +188,9 @@ let squaredNumbers = numbersToSquare.map( (number) => {
 
 console.log(`Array returned from map with values in passed array squared: `)
 console.table(squaredNumbers);
+}
+function forEachExample(anArray=["Jason", "D", "Avery", "Jeff"]){
+  anArray.forEach((anElement)=>{
+    console.log(anElement)
+  })
 }
