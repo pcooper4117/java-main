@@ -16,6 +16,8 @@
 
         <h2 id="page-title">Product Reviews for <span class="name"></span></h2>
         <p class="description"></p>
+        <!-- class-'d-none' is a bootstrap class that says do not display this element
+            form.control and form-control lg are also bootstrap-->
         <input id="inputDesc" class="d-none form-control form-control-lg" type="text"/>
         <div class="clearfix"></div>
 
@@ -54,7 +56,11 @@
             <div class="clearfix"></div>
             <hr>
         </form>
-
+ <!-- a Template is simply a layout for a section of a page
+        a template is a model for html you want to include in your page
+        its used to make manipulating the dom easier              
+        This template is a model for product review to be displayed
+        -->
         <template id="review-template">
             <div class="review">
                 <h4></h4>

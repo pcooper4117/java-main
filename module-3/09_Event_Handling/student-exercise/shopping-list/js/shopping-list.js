@@ -36,6 +36,36 @@ function displayGroceries() {
     ul.appendChild(li);
   });
 }
-
-setPageTitle();
-displayGroceries();
+document.addEventListener('DOMContentLoaded', () => {
+  setPageTitle();
+  displayGroceries();
+  const theGroceries = document.querySelectorAll('li')
+  theGroceries.forEach((task) => {
+    // when you click on a task mark it completed
+    task.addEventListener('click', () => {
+      if (!task.classList.contains('completed')) {
+        task.classList.add('completed');
+        task.querySelector('i').classList.add('completed')
+      }
+    })
+    // when you double click a task remove the completed class
+    task.addEventListener('dblclick', () => {
+      if (task.classList.contains('completed')) {
+        task.classList.remove('completed');
+        task.querySelector('i').classList.remove('completed');
+      }
+    });
+  })
+  const markAll = document.getElementById('toggleAll');
+  markAll.addEventListener('click', () => {
+    theGroceries.forEach((task) => {
+       if (!task.classList.contains('completed')) {
+          task.classList.add('completed');
+           markAll.innerText = 'Mark All Incomplete'
+      } else {
+          task.classList.remove('completed')
+          markAll.innerText = 'Mark All Complete'
+    }
+  })
+  })
+  })
