@@ -44,7 +44,15 @@
         5 Star Review{{ numberOfFiveStarReviews === 1 ? '' : 's' }}
       </div>
     </div>
-    <form v-if="showForm === true">
+<a 
+id="show-form-button"
+href="#"
+v-on:click="showForm = !showForm"
+>Toggle Form
+</a>
+
+
+    <form v-if="showForm === true" v-on:submit.prevent="addReview">
       <div class="form-element">
         <label for="reviewer">Name:</label>
         <input id="reviewer" type="text" v-model="newReview.reviewer" /> <!-- / close input tag -->
@@ -156,7 +164,13 @@ export default {
     };
   },  // end of data()
   computed: { // computed properties are generated whenever data changes on screen
-    averageRating() {
+          isFormValid(){
+              return this.newReview.reviewer
+                  && this.newReview.title
+                  && this.newReview.rating
+                  && this.newReview.review
+          },
+          averageRating() {
       let sum = this.reviews.reduce((currentSum, review) => {
         return currentSum + review.rating;
       }, 0);
@@ -220,7 +234,14 @@ export default {
         // if rating === starType add 1, if not add 0
         //return currentCount + (review.rating === starType); 
       }, 0);
-    }  // end of numberOfReviews
+    }, // end of numberOfReviews
+    addReview(){
+      this.reviews.unshift(newReview)
+    },
+    restForm(){
+this.showForm=false;
+this.newReview = {}
+    }
   }    // end of methods section
 };  // end of export 
 </script>

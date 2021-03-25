@@ -2,6 +2,47 @@
     <div class='main'>  <!-- Place our code in the main part of this page -->
        <h2>Product Reviews for {{ title }}</h2> <!-- Use a mustache {{variable}} to indicate you want data from the component placed here -->
        <p class='description'>{{words}}</p> <!-- mustache expression - {{variable}} -->
+    <div class="well-display">
+      <div class="well">
+        <span class ="amount"> {{numberOfOneStarReviews}}</span>
+        1 Star Rating
+      </div>
+       <div class="well">
+        <span class ="amount"> {{numberOfTwoStarReviews}}</span>
+        2 Star Rating
+      </div>
+      <div class="well">
+        <span class ="amount"> {{numberOfThreeStarReviews}}</span>
+        3 Star Rating
+      </div>
+      <div class="well">
+        <span class ="amount"> {{numberOfFourStarReviews}}</span>
+        4 Star Rating
+      </div>
+<div class="well">
+        <span class ="amount"> {{numberOfFiveStarReviews}}</span>
+        5 Star Rating
+      </div>
+    </div>
+    <div class='review'
+    v-for="aReview in reviews" v-bind:key="aReview.id"
+    >
+    <h4> {{aReview.reviewer}} </h4>
+    <div class="rating">
+    <img 
+    src="../assets/star.png"
+    class="ratingStar"
+    v-for="n in reviews" v-bind:key="n"
+    >
+    </div>
+  <h3>{{aReview.title}}</h3>
+  <p>{{aReview.review}}</p>
+    
+    <p> 
+      favorite?
+      <input type="checkbox" v-model="aReview.favorited"/>
+      </p>
+      </div>
     </div>
 </template>
 
@@ -52,7 +93,47 @@ export default {  // Expose data from this code to external processes (like Vue)
               }
             ]
         }   // end of return
-    }   // end of data()
+    },  // end of data()
+    computed: {
+       averageRating(){
+         let sum =this.reviews.reviews((totalRatings, aReview) =>{
+           return totalRatings + aReview.rating;
+         },0)
+         return sum/this.reviews.length;
+       },
+        numberOfTwoStarReviews(){
+          return this.reviews.reduce((currentCount, anElement) =>{
+            if (anElement.rating === 2){
+              currentCount++
+            }
+            return currentCount
+          },0)
+        }
+    },
+     numberOfThreeStarReviews(){
+          return this.reviews.reduce((currentCount, anElement) =>{
+            if (anElement.rating === 3){
+              currentCount++
+            }
+            return currentCount
+          },0)
+        },
+         numberOfFourStarReviews(){
+          return this.reviews.reduce((currentCount, anElement) =>{
+            if (anElement.rating === 4){
+              currentCount++
+            }
+            return currentCount
+          },0)
+        },
+         numberOfFiveStarReviews(){
+          return this.reviews.reduce((currentCount, anElement) =>{
+            if (anElement.rating === 5){
+              currentCount++
+            }
+            return currentCount
+          },0)
+        }
 }  // end of export
 </script>
 

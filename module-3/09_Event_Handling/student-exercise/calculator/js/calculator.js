@@ -80,7 +80,7 @@ const display = document.getElementById('display')
   // get a reference to all of the numbers
   // loop over each of the numbers
   // add a click event listener to each number to call the function clickNumber
-const theNumbers = document.querySelectorAll('Number')
+const theNumbers = document.querySelectorAll('button.number')
 theNumbers.forEach((aNumber) => {
   aNumber.addEventListener('click', (event) => {
 clickNumber(event)

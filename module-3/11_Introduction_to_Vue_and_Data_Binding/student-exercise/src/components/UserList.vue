@@ -10,13 +10,13 @@
     </tr>
     </thead>
     <tbody>
-      <tr>
-        <td><input type="text" id="firstNameFilter"/></td>
-        <td><input type="text" id="lastNameFilter"/></td>
-        <td><input type="text" id="usernameFilter"/></td>
-        <td><input type="text" id="emailFilter"/></td>
+      <tr> 
+        <td><input type="text" v-model="filter.firstName"    id="firstNameFilter"/> </td>
+        <td><input type="text" v-model="filter.lastName"     id="lastNameFilter"/>  </td>
+        <td><input type="text" v-model="filter.username"     id="usernameFilter"/>  </td>
+        <td><input type="text" v-model="filter.emailAddress" id="emailFilter"/>     </td>
         <td>
-          <select id="statusFilter">
+          <select v-model="filter.status" id="statusFilter">
             <option value="">Show All</option>
             <option value="Active">Active</option>
             <option value="Disabled">Disabled</option>
@@ -24,15 +24,28 @@
         </td>
       </tr>
       <!-- user listing goes here -->
+      <tr v-for="aName in filteredList" v-bind:key="aName.id" v-bind:class="{'disabled': aName.status === 'Disabled'}">
+        <td>  {{aName.firstName}}      </td>
+        <td>  {{aName.lastName}}       </td>
+        <td>  {{aName.username}}       </td>
+        <td>  {{aName.emailAddress}}   </td>
+        <td>  {{aName.status}}         </td>
+        </tr>
     </tbody>
   </table>
 </template>
-
 <script>
 export default {
   name: 'user-list',
   data() {
     return {
+      filter: {
+        firstName: "",
+        lastName: "",
+        username: "",
+        emailAddress: "",
+        status: ""
+      }, 
       users: [
         { firstName: 'John', lastName: 'Smith', username: 'jsmith', emailAddress: 'jsmith@gmail.com', status: 'Active' },
         { firstName: 'Anna', lastName: 'Bell', username: 'abell', emailAddress: 'abell@yahoo.com', status: 'Active' },
@@ -42,10 +55,50 @@ export default {
         { firstName: 'Mark', lastName: 'Smith', username: 'msmith', emailAddress: 'msmith@foo.com', status: 'Disabled' }
       ]
     }
+  },
+ computed: {
+    filteredList() {
+      let theList = this.users
+      if(this.filter.firstName != '') {
+      theList = theList.filter((anElement) => {
+        if(anElement.firstName.toLowerCase().includes(this.filter.firstName.toLowerCase())) {
+          return true;
+        }
+      })
+      }
+      if(this.filter.lastName != '') {
+      theList = theList.filter((anElement) => {
+        if(anElement.lastName.toLowerCase().includes(this.filter.lastName.toLowerCase())) {
+          return true;
+        }
+      })
+      }
+     if(this.filter.username != '') {
+      theList = theList.filter((anElement) => {
+        if(anElement.username.toLowerCase().includes(this.filter.username.toLowerCase())) {
+          return true;
+        }
+      })
+      }
+      if(this.filter.emailAddress != '') {
+      theList = theList.filter((anElement) => {
+        if(anElement.emailAddress.toLowerCase().includes(this.filter.emailAddress.toLowerCase())) {
+          return true;
+        }
+      })
+      }
+     if(this.filter.status != '') {
+        theList = theList.filter((anElement) => {
+          if(anElement.status === this.filter.status) {
+            return true;
+          }
+        })
+      }
+      return theList;
+    }
   }
 }
 </script>
-
 <style scoped>
 table {
   margin-top: 20px;
