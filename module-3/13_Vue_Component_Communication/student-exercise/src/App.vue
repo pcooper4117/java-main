@@ -1,19 +1,20 @@
 <template>
+
   <div id="app">
     <h1>Reading List</h1>
     <reading-list />
   </div>
 </template>
-
 <script>
-import ReadingList from './components/ReadingList.vue';
 
+import ReadingList from './components/ReadingList.vue';
 export default {
   name: 'app',
   components: {
     ReadingList
   }
 }
+
 </script>
 
 <style>

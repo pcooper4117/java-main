@@ -1,21 +1,22 @@
 <template>
   <div id="app" class="main">
-    <h1>Product Reviews for </h1>
-    <p class="description"></p>
+    <h1>Product Reviews for {{$store.state.name}}</h1>
+    <p class="description">{{$store.state.description}}</p>
     <div class="well-display">
-      <average-summary />
-      <star-summary />
-      <star-summary />
-      <star-summary />
-      <star-summary />
-      <star-summary />
+      <average-summary /> <!--AvereageSummary.vue component -->
+      <star-summary rating="1" />    <!--starSummary.vue commponent -->
+      <star-summary rating ="2"/>
+      <star-summary rating="3" />
+      <star-summary rating="4"/>
+      <star-summary rating="5" />
     </div>
-    <add-review />
+    <add-review />    <!-- addReview component-->
     <review-list />
   </div>
 </template>
 
 <script>
+// import the file for each component we are using
 import AverageSummary from "./components/AverageSummary.vue";
 import StarSummary from "./components/StarSummary.vue";
 import AddReview from "./components/AddReview.vue";
