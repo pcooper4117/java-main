@@ -1,5 +1,5 @@
 <template>
-  <div></div>
+  <router-view /> <!-- we want to use vue router to manage the content -->
 </template>
 
 <script>

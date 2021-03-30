@@ -29,16 +29,16 @@ export default {
                 read: false,
                 isbn: ''
             };
+            
+            this.$router.push({name:'MyBooks'})
         }
     }
 }
 </script>
-
 <style>
 .new-book-form {
     margin: 20px;
 }
-
 .new-book-form input, .new-book-form button {
     margin: 10px;
     font-size: 1rem;
