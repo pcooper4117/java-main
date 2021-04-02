@@ -7,13 +7,19 @@
 </template>
 
 <script>
+import service from '@/Services/services'
 export default {
   name: 'topic-list',
   data() {
     return {
       topics: []
     }
-  }
+  },
+  created() { service.getTopics().then((response) => {
+this.topics = response.data;
+  
+  })
+}
 }
 </script>
 

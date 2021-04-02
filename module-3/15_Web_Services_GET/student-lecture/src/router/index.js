@@ -6,14 +6,14 @@ import Card from '../views/Card.vue'
 
 Vue.use(VueRouter)
 
-const routes = [
+const routes = [ // router configuration array - associates paths to components
   {
-    path: '/',
-    name: 'Home',
-    component: Home
+    path: '/',  // this is the path
+    name: 'Home', // name for path may be used in a router link tag
+    component: Home //  component in the view folder to use when path is referenced
   },
   {
-    path: '/board/:id',
+    path: '/board/:id', // path with path variable
     name: 'Board',
     component: Board
   },
